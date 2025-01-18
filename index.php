@@ -10,7 +10,7 @@ get_header(); ?>
       <section class="section-blog-breadcrumb container fadein-bottom">
         <div class="breadcrumb-head">
           <span>
-            <i class="fa fa-home"></i>Home</span>
+            <i class="fa fa-home"></i>首頁</span>
         </div>
       </section>
       <section id="boxmoe_theme_container">

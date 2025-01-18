@@ -3,8 +3,8 @@
  * @link https://www.boxmoe.com
  * @package lolimeow
  */
-//=======安全設定，阻止直接存取主題檔案=======
-if (!defined('ABSPATH')) {echo'別亂看啦';exit;}
+//=======安全设置，阻止直接访问主题文件=======
+if (!defined('ABSPATH')) {echo'Look your sister';exit;}
 //=========================================
 //列表翻页
 if ( ! function_exists( 'boxmoe_paging' ) ) :
@@ -87,13 +87,6 @@ function _get_post_thumbnail( $single=true, $must=true ) {
         foreach($images as $src){
 			$html = sprintf('%s', $src);
             break;
-		}
-	}else{
-		$content = $post->post_content;
-		preg_match_all('/<img.*?(?: |\\t|\\r|\\n)?src=[\'"]?(.+?)[\'"]?(?:(?: |\\t|\\r|\\n)+.*?)?>/sim', $content, $strResult, PREG_PATTERN_ORDER);
-		$images = count($strResult[1]);
-		if($images > 0){//没有设置特色图片则取文章第一张图片
-			$html = sprintf (''.$strResult[1][0].'');
 		}
 	}
 	return $html;
@@ -203,7 +196,7 @@ add_shortcode('userreading', 'login_to_read');
 
 function boxmoe_posts_related($title='', $limit=6, $model='thumb'){
     global $post;
-    $exclude_id = $post->ID;
+    $exclude_id = array($post->ID);
     $posttags = get_the_tags();
     $i = 0;
     if ( $posttags ) {
@@ -211,23 +204,27 @@ function boxmoe_posts_related($title='', $limit=6, $model='thumb'){
         $args = array(
             'post_status' => 'publish',
             'tag_slug__in' => explode(',', $tags),
-            'post__not_in' => explode(',', $exclude_id),
+            'post__not_in' => $exclude_id,
             'ignore_sticky_posts' => 1,
             'orderby' => 'comment_date',
             'posts_per_page' => $limit
         );
         query_posts($args);
         while( have_posts() ) { the_post();
-            echo '<div class="col-lg-4 col-md-6"><div class="card border-0 shadow-sm h-100 card-lift">';
+            // 判斷是否有特色圖片，有才顯示
+            if ( has_post_thumbnail() ) {
+                echo '<div class="col-lg-4 col-md-6"><div class="card border-0 shadow-sm h-100 card-lift">';
 
-            if( $model == 'thumb' ){
-             echo '<figure><a'._post_target_blank().' href="'.get_permalink().'"><img class="card-img-top" src="'._get_post_thumbnail().'"></a></figure>';
+                if( $model == 'thumb' ){
+                 echo '<figure><a'._post_target_blank().' href="'.get_permalink().'"><img class="card-img-top" src="'._get_post_thumbnail().'"></a></figure>';
+                }
+                echo '<div class="card-body h-100 d-flex align-items-start flex-column border rounded-bottom-3 border-top-0">';
+			    echo'<h4><a '._post_target_blank().' href="'.get_permalink().'" title="'.get_the_title().'"class="text-info icon-move-right">'.mb_strimwidth(get_the_title(), 0, 30, '…').'<i class="fa fa-arrow-right text-sm ms-1"></i></a></h4>';
+			    echo'</div></div></div>';
+
+                $exclude_id[] = $post->ID;
+                $i ++;
             }
-            echo '<div class="card-body h-100 d-flex align-items-start flex-column border rounded-bottom-3 border-top-0">';
-			echo'<h4><a '._post_target_blank().' href="'.get_permalink().'" title="'.get_the_title().'"class="text-info icon-move-right">'.mb_strimwidth(get_the_title(), 0, 30, '…').'<i class="fa fa-arrow-right text-sm ms-1"></i></a></h4>';
-			echo'</div></div></div>';
-
-            $exclude_id .= ',' . $post->ID; $i ++;
         };
         wp_reset_query();
     }
@@ -235,22 +232,25 @@ function boxmoe_posts_related($title='', $limit=6, $model='thumb'){
         $cats = ''; foreach ( get_the_category() as $cat ) $cats .= $cat->cat_ID . ',';
         $args = array(
             'category__in' => explode(',', $cats),
-            'post__not_in' => explode(',', $exclude_id),
+            'post__not_in' => $exclude_id,
             'ignore_sticky_posts' => 1,
             'orderby' => 'comment_date',
             'posts_per_page' => $limit - $i
         );
         query_posts($args);
         while( have_posts() ) { the_post();
-            echo '<div class="col-lg-4 col-md-6"><div class="card border-0 shadow-sm h-100 card-lift">';
+            // 判斷是否有特色圖片，有才顯示
+            if ( has_post_thumbnail() ) {
+                echo '<div class="col-lg-4 col-md-6"><div class="card border-0 shadow-sm h-100 card-lift">';
 
-            if( $model == 'thumb' ){
-             echo '<figure><a'._post_target_blank().' href="'.get_permalink().'"><img class="card-img-top" src="'._get_post_thumbnail().'"></a></figure>';
+                if( $model == 'thumb' ){
+                 echo '<figure><a'._post_target_blank().' href="'.get_permalink().'"><img class="card-img-top" src="'._get_post_thumbnail().'"></a></figure>';
+                }
+                echo '<div class="card-body h-100 d-flex align-items-start flex-column border rounded-bottom-3 border-top-0">';
+			    echo'<h4><a '._post_target_blank().' href="'.get_permalink().'" title="'.get_the_title().'"class="text-info icon-move-right">'.mb_strimwidth(get_the_title(), 0, 30, '…').'<i class="fa fa-arrow-right text-sm ms-1"></i></a></h4>';
+			    echo'</div></div></div>';
+                $i ++;
             }
-            echo '<div class="card-body h-100 d-flex align-items-start flex-column border rounded-bottom-3 border-top-0">';
-			echo'<h4><a '._post_target_blank().' href="'.get_permalink().'" title="'.get_the_title().'"class="text-info icon-move-right">'.mb_strimwidth(get_the_title(), 0, 30, '…').'<i class="fa fa-arrow-right text-sm ms-1"></i></a></h4>';
-			echo'</div></div></div>';
-            $i ++;
         };
         wp_reset_query();
     }
@@ -390,50 +390,3 @@ if( get_boxmoe('baidutuisong') ){
         add_action('publish_post', 'Baidu_Submit', 0);
     }
     }
-?>
-<article class="post-list list-one row boxmoe-bg <?php echo boxmoe_border()?>">
-    <?php if (_get_post_thumbnail()): ?>
-    <div class="post-list-img col-lg-5 col-xl-5 col-md-12 col-12">
-        <figure class="mb-4 mb-lg-0 zoom-img">
-            <a <?php echo _post_target_blank() ?> href="<?php echo get_permalink() ?>" title="<?php echo get_the_title().get_the_subtitle(false).boxmoe_connector().get_bloginfo('name')?>">
-                <img src="<?php echo _get_post_thumbnail() ?>" alt="<?php echo get_the_title().get_the_subtitle(false).boxmoe_connector().get_bloginfo('name')?>" class="img-fluid rounded-3"></a>
-        </figure>
-    </div>
-    <div class="post-list-content col-lg-7 col-xl-7 col-md-12 col-12">
-    <?php else: ?>
-    <div class="post-list-content col-lg-12 col-xl-12 col-md-12 col-12 text-center">
-    <?php endif; ?>
-        <div class="category">
-            <div class="tags">
-                <?php
-                $category = get_the_category();
-                if($category[0]){
-                    echo '<a href="'.get_category_link($category[0]->term_id).'" title="檢視《'.$category[0]->cat_name.'》下的所有文章" rel="category tag" '. _post_target_blank().'>
-                    <i class="tagfa fa fa-dot-circle-o"></i>'.$category[0]->cat_name.'</a>';
-                };?>
-            </div>
-        </div>
-        <div class="mt-2 mb-2">
-            <h3 class="post-title h4">
-                <a <?php echo _post_target_blank() ?> href="<?php echo get_permalink() ?>" title="<?php echo get_the_title().get_the_subtitle(false).boxmoe_connector().get_bloginfo('name')?>" class="text-reset">
-                    <?php echo get_the_title().get_the_subtitle() ?>
-                </a>
-            </h3>
-            <p class="post-content"><?php echo _get_excerpt() ?></p>
-        </div>
-        <div class="post-meta align-items-center">
-            <div class="post-meta-info">
-                <span class="list-post-author ms-3">
-                    <i class="fa fa-at"></i><?php the_author(); ?><span class="dot"></span>
-                    <i class="fa fa-clock-o"></i><?php echo get_the_time('Y-m-d') ?>
-                </span>
-                <span class="list-post-view ms-3">
-                    <i class="fa fa-street-view"></i><?php echo getPostViews(get_the_ID()) ?>
-                </span>
-                <span class="list-post-comment ms-3">
-                    <i class="fa fa-comments-o"></i><?php echo get_comments_number('0', '1', '%') ?>
-                </span>
-            </div>
-        </div>
-    </div>
-</article>

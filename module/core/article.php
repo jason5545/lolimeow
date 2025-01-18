@@ -3,8 +3,8 @@
  * @link https://www.boxmoe.com
  * @package lolimeow
  */
-//=======安全设置，阻止直接访问主题文件=======
-if (!defined('ABSPATH')) {echo'Look your sister';exit;}
+//=======安全設定，阻止直接存取主題檔案=======
+if (!defined('ABSPATH')) {echo'別亂看啦';exit;}
 //=========================================
 //列表翻页
 if ( ! function_exists( 'boxmoe_paging' ) ) :
@@ -13,26 +13,26 @@ function boxmoe_paging() {
     if ( is_singular() ) return;
     global $wp_query, $paged;
     $max_page = $wp_query->max_num_pages;
-    if ( $max_page == 1 ) return; 
+    if ( $max_page == 1 ) return;
     echo '<div class="col-lg-12 col-md-12 pagenav">
                   <nav class="d-flex justify-content-center">
                     <ul class="pagination">';
     if ( empty( $paged ) ) $paged = 1;
    if( get_boxmoe('paging_type') == 'multi' && $paged !== 1 ) p_link(0);
-    // echo '<span class="pages">Page: ' . $paged . ' of ' . $max_page . ' </span> '; 
+    // echo '<span class="pages">Page: ' . $paged . ' of ' . $max_page . ' </span> ';
     if( get_boxmoe('paging_type') == 'next' ){echo '<li class="page-item">'; previous_posts_link(__('«', 'boxmoe-com')); echo '</li>';}
 
     if( get_boxmoe('paging_type') == 'multi' ){
         if ( $paged > $p + 1 ) p_link( 1, '<li class="page-item"><a class=\"page-link\">'.__('1', 'boxmoe-com').'</a></li>' );
         if ( $paged > $p + 2 ) echo "<li class=\"page-item\"><a class=\"page-link\">···</a></li>";
-        for( $i = $paged - $p; $i <= $paged + $p; $i++ ) { 
+        for( $i = $paged - $p; $i <= $paged + $p; $i++ ) {
             if ( $i > 0 && $i <= $max_page ) $i == $paged ? print "<li class=\"page-item active\"><a class=\"page-link\" href=\"#\">{$i}</a></li>" : p_link( $i );
         }
         if ( $paged < $max_page - $p - 1 ) echo "<li class=\"page-item\"><a class=\"page-link\">···</a></li>";
     }
-    //if ( $paged < $max_page - $p ) p_link( $max_page, '&raquo;' );
+    //if ( $paged < $max_page - $p ) p_link( $max_page, '»' );
    // echo '<li class="page-item">'; next_posts_link(__('Next', 'boxmoe-com')); echo '</li>';
-   
+
     if( get_boxmoe('paging_type') == 'next' ){echo '<li class="page-item">'; next_posts_link(__('»', 'boxmoe-com')); echo '</li>';}
     if( get_boxmoe('paging_type') == 'multi' && $paged < $max_page ) p_link($max_page, '', 1);
 
@@ -72,30 +72,30 @@ function boxmoe_rand_thumbnail(){
 	}else{
 		$return_thumbnail = boxmoe_themes_dir().'/assets/images/rand/'.mt_rand(1,8).'.jpg';
 	}
-	return $return_thumbnail;	
+	return $return_thumbnail;
 }
 
 //缩略图获取post_thumbnail
-function _get_post_thumbnail( $single=true, $must=true ) {  
+function _get_post_thumbnail( $single=true, $must=true ) {
     global $post;
-    $html = '';	
+    $html = '';
 	//如果有特色图片则取特色图片
 	if ( has_post_thumbnail() ){
 		$domsxe = get_the_post_thumbnail();
-        preg_match_all('/<img.*?(?: |\\t|\\r|\\n)?src=[\'"]?(.+?)[\'"]?(?:(?: |\\t|\\r|\\n)+.*?)?>/sim', $domsxe, $strResult, PREG_PATTERN_ORDER);  
+        preg_match_all('/<img.*?(?: |\\t|\\r|\\n)?src=[\'"]?(.+?)[\'"]?(?:(?: |\\t|\\r|\\n)+.*?)?>/sim', $domsxe, $strResult, PREG_PATTERN_ORDER);
         $images = $strResult[1];
         foreach($images as $src){
 			$html = sprintf('%s', $src);
             break;
 		}
-	}else{		
+	}else{
 		$content = $post->post_content;
 		preg_match_all('/<img.*?(?: |\\t|\\r|\\n)?src=[\'"]?(.+?)[\'"]?(?:(?: |\\t|\\r|\\n)+.*?)?>/sim', $content, $strResult, PREG_PATTERN_ORDER);
 		$images = count($strResult[1]);
-		if($images > 0){//没有设置特色图片则取文章第一张图片		
+		if($images > 0){//没有设置特色图片则取文章第一张图片
 			$html = sprintf (''.$strResult[1][0].'');
-		}else{//既没有设置特色图片、文章内又没图片则取默认图片
-		$html = sprintf (''.boxmoe_rand_thumbnail().'');
+		}else{//既没有设置特色图片、文章内又没图片则不返回任何內容
+		$html = '';
 		}
 	}
 	return $html;
@@ -103,8 +103,8 @@ function _get_post_thumbnail( $single=true, $must=true ) {
 
 //随机图片
 function randpic(){
-$ospic = boxmoe_themes_dir();	
-$thumbnail_no = get_boxmoe('thumbnail_rand_n','8');	
+$ospic = boxmoe_themes_dir();
+$thumbnail_no = get_boxmoe('thumbnail_rand_n','8');
 $temp_no = mt_rand(1,$thumbnail_no);
 return $html = ''.$ospic.'/assets/images/rand/'.$temp_no.'.jpg';
 }
@@ -153,7 +153,7 @@ return 200;
 add_filter( 'excerpt_length', 'custom_excerpt_length');
 
 //文章、评论内容缩短
-function _get_excerpt($limit = 60, $after = '...') { 
+function _get_excerpt($limit = 60, $after = '...') {
 	$excerpt = get_the_excerpt();
 	if (mb_strlen($excerpt) > $limit) {
 		return _str_cut(strip_tags($excerpt), 0, $limit, $after);
@@ -173,7 +173,7 @@ function lightbox_gall_replace ($content) {
 }
 
 // fancybox comment_text
-add_filter( 'comment_text' , 'lightbox_comment', 20, 2);  
+add_filter( 'comment_text' , 'lightbox_comment', 20, 2);
 function lightbox_comment ($content) {
 	global $post;
 	$pattern = "/<img(.*?)src=('|\")([A-Za-z0-9\/_\.\~\:-]*?)(\.bmp|\.gif|\.jpg|\.jpeg|\.png)('|\")([^\>]*?)>/i";
@@ -191,7 +191,6 @@ function erphpdownbuy_replace ($content) {
 	return $content;
 }
 
-
 //会员查看内容
 function login_to_read($atts, $content=null) {
 extract(shortcode_atts(array("notice" => '
@@ -202,43 +201,42 @@ if ( is_user_logged_in() && !is_null( $content ) && !is_feed() )
 }
 add_shortcode('userreading', 'login_to_read');
 
-
 //post related
 
 function boxmoe_posts_related($title='', $limit=6, $model='thumb'){
     global $post;
-    $exclude_id = $post->ID; 
-    $posttags = get_the_tags(); 
+    $exclude_id = $post->ID;
+    $posttags = get_the_tags();
     $i = 0;
-    if ( $posttags ) { 
+    if ( $posttags ) {
         $tags = ''; foreach ( $posttags as $tag ) $tags .= $tag->name . ',';
         $args = array(
             'post_status' => 'publish',
-            'tag_slug__in' => explode(',', $tags), 
-            'post__not_in' => explode(',', $exclude_id), 
-            'ignore_sticky_posts' => 1, 
-            'orderby' => 'comment_date', 
+            'tag_slug__in' => explode(',', $tags),
+            'post__not_in' => explode(',', $exclude_id),
+            'ignore_sticky_posts' => 1,
+            'orderby' => 'comment_date',
             'posts_per_page' => $limit
         );
-        query_posts($args); 
+        query_posts($args);
         while( have_posts() ) { the_post();
-            echo '<div class="col-lg-4 col-md-6"><div class="card border-0 shadow-sm h-100 card-lift">'; 
+            echo '<div class="col-lg-4 col-md-6"><div class="card border-0 shadow-sm h-100 card-lift">';
 
             if( $model == 'thumb' ){
              echo '<figure><a'._post_target_blank().' href="'.get_permalink().'"><img class="card-img-top" src="'._get_post_thumbnail().'"></a></figure>';
             }
             echo '<div class="card-body h-100 d-flex align-items-start flex-column border rounded-bottom-3 border-top-0">';
 			echo'<h4><a '._post_target_blank().' href="'.get_permalink().'" title="'.get_the_title().'"class="text-info icon-move-right">'.mb_strimwidth(get_the_title(), 0, 30, '…').'<i class="fa fa-arrow-right text-sm ms-1"></i></a></h4>';
-			echo'</div></div></div>'; 
+			echo'</div></div></div>';
 
             $exclude_id .= ',' . $post->ID; $i ++;
         };
         wp_reset_query();
     }
-    if ( $i < $limit ) { 
+    if ( $i < $limit ) {
         $cats = ''; foreach ( get_the_category() as $cat ) $cats .= $cat->cat_ID . ',';
         $args = array(
-            'category__in' => explode(',', $cats), 
+            'category__in' => explode(',', $cats),
             'post__not_in' => explode(',', $exclude_id),
             'ignore_sticky_posts' => 1,
             'orderby' => 'comment_date',
@@ -246,14 +244,14 @@ function boxmoe_posts_related($title='', $limit=6, $model='thumb'){
         );
         query_posts($args);
         while( have_posts() ) { the_post();
-            echo '<div class="col-lg-4 col-md-6"><div class="card border-0 shadow-sm h-100 card-lift">'; 
+            echo '<div class="col-lg-4 col-md-6"><div class="card border-0 shadow-sm h-100 card-lift">';
 
             if( $model == 'thumb' ){
              echo '<figure><a'._post_target_blank().' href="'.get_permalink().'"><img class="card-img-top" src="'._get_post_thumbnail().'"></a></figure>';
             }
             echo '<div class="card-body h-100 d-flex align-items-start flex-column border rounded-bottom-3 border-top-0">';
 			echo'<h4><a '._post_target_blank().' href="'.get_permalink().'" title="'.get_the_title().'"class="text-info icon-move-right">'.mb_strimwidth(get_the_title(), 0, 30, '…').'<i class="fa fa-arrow-right text-sm ms-1"></i></a></h4>';
-			echo'</div></div></div>';  
+			echo'</div></div></div>';
             $i ++;
         };
         wp_reset_query();
@@ -261,7 +259,6 @@ function boxmoe_posts_related($title='', $limit=6, $model='thumb'){
     if ( $i == 0 ){
         echo '<div class="col-md-12 text-center">暂无相关文章内容！</div>';
     }
-    
 
 }
 function autoset_featured_image() {
@@ -283,7 +280,6 @@ add_action( 'draft_to_publish', 'autoset_featured_image' );
 add_action( 'new_to_publish', 'autoset_featured_image' );
 add_action( 'pending_to_publish', 'autoset_featured_image' );
 add_action( 'future_to_publish', 'autoset_featured_image' );
-
 
 function zww_archives_list() {
 	if( !$output = get_option('zww_db_cache_archives_list') ){
@@ -323,7 +319,7 @@ function zww_archives_list() {
 <div class="timeline-content">
                     <small class="text-muted font-weight-bold biji-tit">'. $key_y .' 年 <em>( '. $y_i .' 篇文章 )</em></small>'; //输出年份
 			$output .= $y_output;
-			$output .= '</div>';  
+			$output .= '</div>';
 		}
 
 		$output .= '</div>';
@@ -356,7 +352,6 @@ function boxmoe_prettify_replace($text){
 	$text = str_replace(array_keys($replace), $replace, $text);
 	return $text;}
 add_filter('the_content', 'boxmoe_prettify_replace');
-
 
 function boxmoe_table_replace($text){
 	$replace = array( '<table>' => '<div class="table-responsive"><table class="table" >','</table>' => '</table></div>' );
@@ -397,3 +392,50 @@ if( get_boxmoe('baidutuisong') ){
         add_action('publish_post', 'Baidu_Submit', 0);
     }
     }
+?>
+<article class="post-list list-one row boxmoe-bg <?php echo boxmoe_border()?>">
+    <?php if (_get_post_thumbnail()): ?>
+    <div class="post-list-img col-lg-5 col-xl-5 col-md-12 col-12">
+        <figure class="mb-4 mb-lg-0 zoom-img">
+            <a <?php echo _post_target_blank() ?> href="<?php echo get_permalink() ?>" title="<?php echo get_the_title().get_the_subtitle(false).boxmoe_connector().get_bloginfo('name')?>">
+                <img src="<?php echo _get_post_thumbnail() ?>" alt="<?php echo get_the_title().get_the_subtitle(false).boxmoe_connector().get_bloginfo('name')?>" class="img-fluid rounded-3"></a>
+        </figure>
+    </div>
+    <div class="post-list-content col-lg-7 col-xl-7 col-md-12 col-12">
+    <?php else: ?>
+    <div class="post-list-content col-lg-12 col-xl-12 col-md-12 col-12 text-center">
+    <?php endif; ?>
+        <div class="category">
+            <div class="tags">
+                <?php
+                $category = get_the_category();
+                if($category[0]){
+                    echo '<a href="'.get_category_link($category[0]->term_id).'" title="檢視《'.$category[0]->cat_name.'》下的所有文章" rel="category tag" '. _post_target_blank().'>
+                    <i class="tagfa fa fa-dot-circle-o"></i>'.$category[0]->cat_name.'</a>';
+                };?>
+            </div>
+        </div>
+        <div class="mt-2 mb-2">
+            <h3 class="post-title h4">
+                <a <?php echo _post_target_blank() ?> href="<?php echo get_permalink() ?>" title="<?php echo get_the_title().get_the_subtitle(false).boxmoe_connector().get_bloginfo('name')?>" class="text-reset">
+                    <?php echo get_the_title().get_the_subtitle() ?>
+                </a>
+            </h3>
+            <p class="post-content"><?php echo _get_excerpt() ?></p>
+        </div>
+        <div class="post-meta align-items-center">
+            <div class="post-meta-info">
+                <span class="list-post-author ms-3">
+                    <i class="fa fa-at"></i><?php the_author(); ?><span class="dot"></span>
+                    <i class="fa fa-clock-o"></i><?php echo get_the_time('Y-m-d') ?>
+                </span>
+                <span class="list-post-view ms-3">
+                    <i class="fa fa-street-view"></i><?php echo getPostViews(get_the_ID()) ?>
+                </span>
+                <span class="list-post-comment ms-3">
+                    <i class="fa fa-comments-o"></i><?php echo get_comments_number('0', '1', '%') ?>
+                </span>
+            </div>
+        </div>
+    </div>
+</article>

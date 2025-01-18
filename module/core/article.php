@@ -94,8 +94,6 @@ function _get_post_thumbnail( $single=true, $must=true ) {
 		$images = count($strResult[1]);
 		if($images > 0){//没有设置特色图片则取文章第一张图片
 			$html = sprintf (''.$strResult[1][0].'');
-		}else{//既没有设置特色图片、文章内又没图片则不返回任何內容
-		$html = '';
 		}
 	}
 	return $html;

@@ -4,7 +4,7 @@
  * @link https://www.boxmoe.com
  */
 //=======安全设置，阻止直接访问主题文件=======
-if (!defined('ABSPATH')) {echo'Look your sister';exit;}
+if (!defined('ABSPATH')) {echo'別亂看啦';exit;}
 //=========================================
 get_header(); ?>
       <section class="section-blog-breadcrumb container fadein-bottom">

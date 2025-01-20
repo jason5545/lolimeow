@@ -1,4 +1,4 @@
-<?php
+@<?php
 //=======安全設定，阻止直接存取主題檔案=======
 if (!defined('ABSPATH')) {
     echo '想幹嘛呢？';
@@ -817,7 +817,7 @@ function optionsframework_options() {
         'id'   => 'remove_dns_refresh',
         'type' => 'checkbox',
         'std'  => false,
-        'desc' => __('WP 系統預設的 DNS 預加載，看需求決定是否移除', 'ui_boxmoe_com'),
+        'desc' => __('WP 系統預設的 DNS 預先載入 ，看需求決定是否移除', 'ui_boxmoe_com'),
     );
     $options[] = array(
         'name' => __('停用文章自動儲存', 'ui_boxmoe_com'),
@@ -868,10 +868,10 @@ function optionsframework_options() {
     );
     $options[] = array(
         'name'        => __('Gravatar 頭像', 'ui_boxmoe_com'),
-        'desc'        => __('（可透過鏡像伺服器加速 Gravatar 頭像）', 'ui_boxmoe_com'),
+        'desc'        => __('（可透過鏡像伺服器加速 Gravatar 大頭貼）', 'ui_boxmoe_com'),
         'id'          => 'gravatar_url',
         'group'       => 'start',
-        'group_title' => '前端頭像加速伺服器',
+        'group_title' => '前端大頭貼加速伺服器',
         'std'         => 'lolinet',
         'type'        => 'select',
         'class'       => 'mini',
@@ -899,7 +899,7 @@ function optionsframework_options() {
         'std'  => 'local',
         'type' => 'radio',
         'options' => array(
-            'local'   => __('本地（預設）', 'ui_boxmoe_com'),
+            'local'   => __('本機（預設）', 'ui_boxmoe_com'),
             'diy_cdn' => __('自建節點', 'ui_boxmoe_com')
         )
     );
@@ -912,53 +912,7 @@ function optionsframework_options() {
         'type'     => 'textarea'
     );
 
-    //==========================================================================================
-    $options[] = array(
-        'name' => __('全站音樂', 'ui_boxmoe_com'),
-        'type' => 'heading'
-    );
-    $options[] = array(
-        'name' => __('說明', 'ui_boxmoe_com'),
-        'desc' => __('音樂功能介面已失效，目前暫無替代方案，請關閉此功能', 'ui_boxmoe_com'),
-        'type' => 'info'
-    );
-    $options[] = array(
-        'name' => __('全站底部音樂播放器開關', 'ui_boxmoe_com'),
-        'id'   => 'music_on',
-        'type' => 'checkbox',
-        'std'  => false,
-    );
-    $options[] = array(
-        'name' => __('★選擇音樂服務供應商', 'ui_boxmoe_com'),
-        'id'   => 'music_server',
-        'std'  => 'netease',
-        'type' => 'radio',
-        'options' => array(
-            'netease' => __('1. 網易雲', 'ui_boxmoe_com'),
-            'tencent' => __('2. QQ音樂', 'ui_boxmoe_com'),
-            'kugou'   => __('3. 酷狗', 'ui_boxmoe_com'),
-            'xiami'   => __('4. 虾米', 'ui_boxmoe_com'),
-            'baidu'   => __('5. 百度', 'ui_boxmoe_com')
-        )
-    );
-    $options[] = array(
-        'name' => __('歌單ID', 'ui_boxmoe_com'),
-        'desc' => __('（請避免使用超過100首的歌單，以免API伺服器回傳錯誤）', 'ui_boxmoe_com'),
-        'id'   => 'music_id',
-        'std'  => '2765798464',
-        'type' => 'text'
-    );
-    $options[] = array(
-        'name' => __('★歌單列表播放順序', 'ui_boxmoe_com'),
-        'id'   => 'music_order',
-        'std'  => 'list',
-        'type' => 'radio',
-        'options' => array(
-            'list'   => __('1. 順序播放', 'ui_boxmoe_com'),
-            'random' => __('2. 隨機播放', 'ui_boxmoe_com'),
-        )
-    );
-
+//==========================================================================================
     $options[] = array(
         'name' => __('關於主題', 'ui_boxmoe_com'),
         'type' => 'heading'
@@ -983,7 +937,7 @@ function optionsframework_options() {
             <p>1. 本主題僅供部落格愛好者合法建站使用！嚴禁用於違法用途！若無法遵守請立即刪除。</p>
             <p>2. 嚴禁利用本主題嚴重侵犯他人隱私權，若無法遵守請立即刪除。</p>
             <p>3. 使用主題時請遵守網站伺服器所在地及站長所在地相關法律，若無法遵守請立即刪除。</p>
-            <p>4. 本主題不支援任何非法或違規用途站點，若無法遵守請立即刪除。</p>
+            <p>4. 本主題不支援任何非法或違規用途網站，若無法遵守請立即刪除。</p>
             <p>5. 主題開放源碼，並無任何加密檔案；若因使用者使用本主題導致自身或他人隱私洩露、任何不良後果，均由使用者自行承擔，作者不承擔任何責任。</p>
             <p>6. 主題為共享下載，若使用者自行下載使用，即表示使用者自願並接受本協定所有條款。若無法接受請立即刪除。</p>
             ',

@@ -8,30 +8,7 @@ if (!defined('ABSPATH')) {
     echo '請勿直接存取。';
     exit;
 }
-//=========================================
 ?>
-<!--
-                   _ooOoo_
-                  o8888888o
-                  88" . "88
-                  (| -_- |)
-                  O\  =  /O
-               ____/`---'\____
-             .'  \\|     |//  `.
-            /  \\|||  :  |||//  \
-           /  _||||| -:- |||||-  \
-           |   | \\\  -  /// |   |
-           | \_|  ''\---/''  |   |
-           \  .-\__  `-`  ___/-. /
-         ___`. .'  /--.--\  `. . __
-      ."" '<  `.___\_<|>_/___.'  >'"".
-     | | :  `- \`.;`\ _ /`;.`/ - ` : | |
-     \  \ `-.   \_ __\ /__ _/   .-` /  /
-======`-.____`-.___\_____/___.-`____.-'======
-                   `=---='
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    祈禱順利運作，避免錯誤發生
--->
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
@@ -41,35 +18,49 @@ if (!defined('ABSPATH')) {
     <?php echo boxmoe_keywords(); ?>
     <?php echo boxmoe_description(); ?>
     <?php echo boxmoe_favicon(); ?>
-    <!-- 預載字型，提升 LCP -->
+    
+    <!-- 預載字型 -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap" as="style">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap">
-    <!-- 預載關鍵圖片 -->
-    <link rel="preload" href="<?php echo get_template_directory_uri(); ?>/images/banner.jpg" as="image">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- 預載背景圖片 -->
+    <?php if (get_boxmoe('banner_image')): ?>
+    <link rel="preload" href="<?php echo get_boxmoe('banner_image'); ?>" as="image">
+    <?php endif; ?>
+
+    <!-- 預載 CSS -->
+    <link rel="preload" href="<?php echo get_template_directory_uri(); ?>/style.css" as="style">
+    
+    <!-- 載入 WordPress 標準功能 -->
     <?php wp_head(); ?>
+
+    <!-- 動態設定橫幅高度 -->
     <?php if (get_boxmoe('banner_height')) { ?>
-        <style>
-            .section-blog-cover {
-                height: <?php echo get_boxmoe('banner_height'); ?>px;
-            }
-        </style>
+    <style>
+        .section-blog-cover {
+            height: <?php echo get_boxmoe('banner_height'); ?>px;
+        }
+    </style>
     <?php } ?>
     <?php if (get_boxmoe('m_banner_height')) { ?>
-        <style>
-            @media (max-width: 767px) {
-                .section-blog-cover {
-                    height: <?php echo get_boxmoe('m_banner_height'); ?>px;
-                }
+    <style>
+        @media (max-width: 767px) {
+            .section-blog-cover {
+                height: <?php echo get_boxmoe('m_banner_height'); ?>px;
             }
-        </style>
+        }
+    </style>
     <?php } ?>
 </head>
 <body style="font-family: 'Noto Sans TC', sans-serif;">
 <?php if (get_boxmoe('boxmoe_preloader')) { ?>
     <div class="preloader">
-        <!-- 動畫代碼 -->
+        <svg version="1.1" id="boxmoe-sakura" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+             width="80" height="80" viewBox="0 0 80 80" style="enable-background:new 0 0 80 80;" xml:space="preserve">
+            <g id="sakura">
+                <!-- 動畫內容保持不變 -->
+            </g>
+        </svg>
     </div>
 <?php } ?>
 <?php echo boxmoe_load_lantern(); ?>
@@ -125,7 +116,7 @@ if (!defined('ABSPATH')) {
                                     </li>
                                 <?php } else { ?>
                                     <li class="nav-item dropdown dropdown-hover nav-item">
-                                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
+                                        <a href="#" class="nav-link  dropdown-toggle" data-bs-toggle="dropdown"
                                            aria-haspopup="true" aria-expanded="false">
                                             <i class="fa fa-user-circle-o"></i>您好！, <?php $current_user = wp_get_current_user();
                                             echo esc_html($current_user->user_login); ?></a>
@@ -176,3 +167,5 @@ if (!defined('ABSPATH')) {
         </div>
     </section>
 </div>
+</body>
+</html>

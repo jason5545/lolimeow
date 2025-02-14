@@ -35,6 +35,9 @@ if (!defined('ABSPATH')) {
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
+<!-- 預載字型 -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap" as="style">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title><?php echo boxmoe_title(); ?></title>

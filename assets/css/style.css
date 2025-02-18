@@ -9,9 +9,16 @@ Author URI:https://www.boxmoe.com
 @import url(theme.min.css);
 @import url(https://lf9-cdn-tos.bytecdntp.com/cdn/expire-2-M/font-awesome/4.7.0/css/font-awesome.min.css);
 @import url(https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/fancybox/3.5.7/jquery.fancybox.min.css);
-@font-face{font-family:'boxmoe';src:url(../fonts/AlimamaFangYuanTiVF-Thin.woff2)}
+/* 原本載入 boxmoe 字型，現已移除以使用新字體 */
+// @font-face{font-family:'boxmoe';src:url(../fonts/AlimamaFangYuanTiVF-Thin.woff2)}
 :root{--box-fff:#fff;--box-333:#333;--box-fill:rgba(255,255,255,0.3);--box-fill2:rgb(255 255 255 / 95%)}
-body{font-family:"Noto Sans TC",Microsoft JhengHei,Georgia,Times,serif,Microsoft Yahei,Open Sans,sans-serif;font-size:15px;background-color:var(--bs-white);font-weight:400;color:#3b3b3b}
+body{
+  font-family: "Noto Sans TC", "微軟正黑體", "Microsoft JhengHei", "PingFang TC", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size:15px;
+  background-color:var(--bs-white);
+  font-weight:400;
+  color:#3b3b3b
+}
 *::-webkit-scrollbar{height:10px;width:10px}
 *::-webkit-scrollbar-track{border-radius:5px;background-color:#DFE9EB}
 *::-webkit-scrollbar-track:hover{background-color:#B8C0C2}
@@ -419,7 +426,15 @@ div.tags a:hover{color:var(--box-333) !important;-webkit-transform:translate(-1p
 .shui-c{position:absolute;top:18px;left:-2px;width:10px;height:35px;background:orange;border-radius:0 0 0 5px}
 .deng:before{position:absolute;top:-7px;left:29px;height:12px;width:60px;content:" ";display:block;z-index:999;border-radius:5px 5px 0 0;border:solid 1px #dc8f03;background:orange;background:linear-gradient(to right,#dc8f03,orange,#dc8f03,orange,#dc8f03)}
 .deng:after{position:absolute;bottom:-7px;left:10px;height:12px;width:60px;content:" ";display:block;margin-left:20px;border-radius:0 0 5px 5px;border:solid 1px #dc8f03;background:orange;background:linear-gradient(to right,#dc8f03,orange,#dc8f03,orange,#dc8f03)}
-.deng-t{font-family:黑体,Arial,Lucida Grande,Tahoma,sans-serif;font-size:3.2rem;color:#dc8f03;font-weight:700;line-height:85px;text-align:center}
+/* 將原本的黑体改為以正體中文為優先 */
+.deng-t{
+  font-family: "Noto Sans TC", "微軟正黑體", "Microsoft JhengHei", "PingFang TC", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size:3.2rem;
+  color:#dc8f03;
+  font-weight:700;
+  line-height:85px;
+  text-align:center
+}
 .night .deng-box,.night .deng-box1,.night .deng-t{background:0 0!important}
 @-moz-keyframes swing{0%{-moz-transform:rotate(-10deg)}
 50%{-moz-transform:rotate(10deg)}

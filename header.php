@@ -35,9 +35,6 @@ if (!defined('ABSPATH')) {
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
-<!-- 預載字型 -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap" as="style">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title><?php echo boxmoe_title(); ?></title>
@@ -64,6 +61,7 @@ if (!defined('ABSPATH')) {
             }
         </style>
     <?php } ?>
+<body style="font-family: 'Noto Sans TC', sans-serif;">
 <?php if (get_boxmoe('boxmoe_preloader')) { ?>
     <div class="preloader">
         <svg version="1.1" id="boxmoe-sakura" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"

@@ -43,7 +43,7 @@ if (!defined('ABSPATH')) {
     <?php echo boxmoe_favicon(); ?>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
     <?php wp_head(); ?>
     <?php if (get_boxmoe('banner_height')) { ?>
         <style>
@@ -61,7 +61,6 @@ if (!defined('ABSPATH')) {
             }
         </style>
     <?php } ?>
-<body style="font-family: 'Noto Sans TC', sans-serif;">
 <?php if (get_boxmoe('boxmoe_preloader')) { ?>
     <div class="preloader">
         <svg version="1.1" id="boxmoe-sakura" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"

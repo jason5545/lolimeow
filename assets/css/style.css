@@ -11,7 +11,7 @@ Author URI:https://www.boxmoe.com
 @import url(https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/fancybox/3.5.7/jquery.fancybox.min.css);
 @font-face{font-family:'boxmoe';src:url(../fonts/AlimamaFangYuanTiVF-Thin.woff2)}
 :root{--box-fff:#fff;--box-333:#333;--box-fill:rgba(255,255,255,0.3);--box-fill2:rgb(255 255 255 / 95%)}
-body{font-family:"boxmoe",Microsoft JhengHei,Georgia,Times,serif,Microsoft Yahei,Open Sans,sans-serif;font-size:15px;background-color:var(--bs-white);font-weight:400;color:#3b3b3b}
+body{font-family:"Noto Sans TC",Microsoft JhengHei,Georgia,Times,serif,Open Sans,sans-serif;font-size:15px;background-color:var(--bs-white);font-weight:400;color:#3b3b3b}
 *::-webkit-scrollbar{height:10px;width:10px}
 *::-webkit-scrollbar-track{border-radius:5px;background-color:#DFE9EB}
 *::-webkit-scrollbar-track:hover{background-color:#B8C0C2}

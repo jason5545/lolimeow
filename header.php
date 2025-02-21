@@ -1,4 +1,4 @@
-<?php
+v<?php
 /**
  * @package lolimeow@boxmoe themes
  * @link https://www.boxmoe.com
@@ -33,6 +33,7 @@ if (!defined('ABSPATH')) {echo'Look your sister';exit;}
 <html <?php language_attributes(); ?>>
   
   <head>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit-no">
     <title><?php echo  boxmoe_title(); ?></title>

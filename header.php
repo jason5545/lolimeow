@@ -3,7 +3,7 @@
  * @package lolimeow@boxmoe themes
  * @link https://www.boxmoe.com
  */
-//=======安全设置，阻止直接访问主题文件=======
+//=======安全設定，阻止直接存取主題檔案=======
 if (!defined('ABSPATH')) {echo'Look your sister';exit;}
 //=========================================
 ?>
@@ -27,14 +27,14 @@ if (!defined('ABSPATH')) {echo'Look your sister';exit;}
 ======`-.____`-.___\_____/___.-`____.-'======
                    `=---='
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    佛祖保佑       永不宕机     永无BUG
+    佛祖保佑       永不當機     永無BUG
 -->
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
   
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit-no">
     <title><?php echo  boxmoe_title(); ?></title>
 	  <?php echo boxmoe_keywords()?>
     <?php echo boxmoe_description()?>
@@ -67,11 +67,11 @@ if (!defined('ABSPATH')) {echo'Look your sister';exit;}
             <path id="hanapath-03" class="st1" d="M65,56.4c-1.6-2.9-4.9-5.1-6.9-6.2c-4.3-2.3-9.8-2.7-14.5-3c-1.2,4.6-2.5,9.9-1.7,14.7
                c0.4,2.2,1.5,6.1,3.7,8.5c5.5,5.9,13.5,5,13.5,5l2.1-4l4.4-0.7C65.6,70.8,68.9,63.5,65,56.4z"></path>
             <path id="hana-04" class="st0" d="M36.5,47.3c-4.7,0.3-10.2,0.7-14.5,3c-2,1.1-5.4,3.3-6.9,6.2c-3.9,7.1-0.6,14.4-0.6,14.4l4.4,0.7
-               l2.1,4c0,0,8,0.9,13.5-5c2.2-2.4,3.3-6.3,3.7-8.5C39,57.2,37.6,51.9,36.5,47.3z">
+               l2.1,4c0,0,8,0.9,13.5-5c2.2-2.4,3.3-6.3,3.7-8.5C39,57.2,37,51.9,36.5,47.3z">
                <animate attributeType="XML" attributeName="opacity" values="0;1;1;1;1;1;0;0;0;0" dur="5s" calcMode="discrete" begin="1.5s" repeatCount="indefinite"></animate>
             </path>
             <path id="hanapath-04" class="st1" d="M36.5,47.3c-4.7,0.3-10.2,0.7-14.5,3c-2,1.1-5.4,3.3-6.9,6.2c-3.9,7.1-0.6,14.4-0.6,14.4
-               l4.4,0.7l2.1,4c0,0,8,0.9,13.5-5c2.2-2.4,3.3-6.3,3.7-8.5C39,57.2,37.6,51.9,36.5,47.3z"></path>
+               l4.4,0.7l2.1,4c0,0,8,0.9,13.5-5c2.2-2.4,3.3-6.3,3.7-8.5C39,57.2,37,51.9,36.5,47.3z"></path>
             <path id="hana-05" class="st0" d="M27,27.7c-1.6-1.6-4.8-4.1-8-4.7c-7.9-1.5-13.9,3.9-13.9,3.9l0.7,4.4l-3.1,3.2
                c0,0,1.6,7.9,8.9,11.3c3,1.4,7,1.2,9.2,0.9c4.8-0.7,9.5-3.6,13.5-6.1C32.5,36.2,30.5,31.1,27,27.7z">
                <animate attributeType="XML" attributeName="opacity" values="0;1;1;1;1;1;0;0;0;0" dur="5s" calcMode="discrete" begin="2s" repeatCount="indefinite"></animate>
@@ -121,12 +121,12 @@ if (!defined('ABSPATH')) {echo'Look your sister';exit;}
                     <div class="user-wrapper">
                       <div class="user-no-login">
                         <span class="user-login">
-                          <a href="<?php get_login_url(); ?>?r=<?php get_user_url(); ?>" class="signin-loader z-bor">登录</a>
+                          <a href="<?php get_login_url(); ?>?r=<?php get_user_url(); ?>" class="signin-loader z-bor">登入</a>
                           <b class="middle-text">
                             <span class="middle-inner">or</span></b>
                         </span>
                         <span class="user-reg">
-                          <a href="<?php get_reg_url(); ?>" class="signup-loader l-bor">注册</a></span>
+                          <a href="<?php get_reg_url(); ?>" class="signup-loader l-bor">註冊</a></span>
                       </div>
                       <i class="up-new"></i>
                     </div>
@@ -137,11 +137,11 @@ if (!defined('ABSPATH')) {echo'Look your sister';exit;}
                     <ul class="dropdown-menu">
                       <li>
                         <a href="<?php get_user_url(); ?>" class="dropdown-item">
-                          <i class="fa fa-address-card-o"></i>会员中心</a>
+                          <i class="fa fa-address-card-o"></i>會員中心</a>
                       </li>
                       <li>
                         <a href="<?php echo wp_logout_url( home_url() ); ?>" class="dropdown-item">
-                          <i class="fa fa-sign-out"></i>注销登录</a>
+                          <i class="fa fa-sign-out"></i>登出</a>
                       </li><?php } ?>
                     </ul>
                   </li>
@@ -176,4 +176,3 @@ if (!defined('ABSPATH')) {echo'Look your sister';exit;}
           </svg>
         </div>
       </section>
-

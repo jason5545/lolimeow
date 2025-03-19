@@ -313,7 +313,7 @@ function boxmoe_border_setting(){
 
 
 
-// 搜索结果排除所有页面--------------------------boxmoe.com--------------------------
+// 搜尋结果排除所有页面--------------------------boxmoe.com--------------------------
 function boxmoe_search_exclude_pages($query) {
     if ($query->is_search) {
         $query->set('post_type', 'post');

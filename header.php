@@ -95,7 +95,7 @@ if(!defined('ABSPATH')){echo'Look your sister';exit;}?>
             <?php boxmoe_logo(); ?></a>
           <div class="d-flex d-lg-none align-items-center">
             <form class="mobile-search-form" role="search" method="get" action="<?php echo home_url( '/' ) ?>"  >
-              <input type="search" class="mobile-search-input" placeholder="搜索..." aria-label="Search" name="s" value="<?php echo get_search_query(); ?>">
+              <input type="search" class="mobile-search-input" placeholder="搜尋..." aria-label="Search" name="s" value="<?php echo get_search_query(); ?>">
               <button type="submit" class="mobile-search-btn">
                 <i class="fa fa-search"></i>
               </button>
@@ -177,7 +177,7 @@ if(!defined('ABSPATH')){echo'Look your sister';exit;}?>
               <div class="nav-right-section d-flex align-items-center">
                 <div class="search-box">
                   <form class="search-form" role="search" method="get" action="<?php echo home_url( '/' ) ?>">
-                    <input type="search" class="search-input" placeholder="搜索..." aria-label="Search" name="s" value="<?php echo get_search_query(); ?>">
+                    <input type="search" class="search-input" placeholder="搜尋..." aria-label="Search" name="s" value="<?php echo get_search_query(); ?>">
                     <button type="submit" class="search-btn">
                       <i class="fa fa-search"></i>
                     </button>

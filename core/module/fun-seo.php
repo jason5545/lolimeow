@@ -76,7 +76,7 @@ function boxmoe_360_submit($post_ID) {
 add_action('publish_post', 'boxmoe_360_submit');
 }
 
-// 谷歌搜索推送功能--------------------------boxmoe.com--------------------------
+// 谷歌搜尋推送功能--------------------------boxmoe.com--------------------------
 if(get_boxmoe('boxmoe_google_submit_switch')){
 function boxmoe_google_submit($post_ID) {
     if (get_post_status($post_ID) == 'publish') {
@@ -92,7 +92,7 @@ function boxmoe_google_submit($post_ID) {
 add_action('publish_post', 'boxmoe_google_submit');
 }
 
-// Yandex搜索推送功能--------------------------boxmoe.com--------------------------
+// Yandex搜尋推送功能--------------------------boxmoe.com--------------------------
 if(get_boxmoe('boxmoe_yandex_submit_switch')){
 function boxmoe_yandex_submit($post_ID) {
     if (get_post_status($post_ID) == 'publish') {
@@ -317,7 +317,7 @@ function boxmoe_description() {
     } elseif ( is_archive() )  { 
         $description = $blog_name.'文章歸檔';
     } elseif ( is_search() )   { 
-        $description = '搜索：'.$s.' - '.$blog_name;
+        $description = '搜尋：'.$s.' - '.$blog_name;
     } else { 
         $description = get_boxmoe('boxmoe_description'); 
     }
@@ -376,7 +376,7 @@ function boxmoe_seo_description() {
     } elseif ( is_archive() )  { 
         $description = $blog_name.'文章歸檔';
     } elseif ( is_search() )   { 
-        $description = '搜索：'.$s.' - '.$blog_name;
+        $description = '搜尋：'.$s.' - '.$blog_name;
     } else { 
         $description = get_boxmoe('boxmoe_description'); 
     }

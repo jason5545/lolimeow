@@ -105,7 +105,7 @@ function showToast(message, isSuccess = true) {
         toastElement.remove();
     });
 }
-// 搜索框初始化
+// 搜尋框初始化
 function initSearchBox() {
     const searchBtns = document.querySelectorAll('.search-btn, .mobile-search-btn');
     const searchForms = document.querySelectorAll('.search-form, .mobile-search-form');

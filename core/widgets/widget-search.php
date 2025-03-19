@@ -10,8 +10,8 @@ class widget_search extends WP_Widget {
     public function __construct() {
         parent::__construct(
             'boxmoe_widget_search',
-            'Boxmoe_侧栏搜索',
-            array('description' => __('Boxmoe_侧栏搜索框', 'text_domain'),
+            'Boxmoe_侧栏搜尋',
+            array('description' => __('Boxmoe_侧栏搜尋框', 'text_domain'),
             'classname' => __('widget-search', 'text_domain'))
         );
     }
@@ -27,7 +27,7 @@ class widget_search extends WP_Widget {
         <div class="widget-content">
             <form role="search" method="get" class="search-form" action="<?php echo esc_url(home_url('/')); ?>">
                 <div class="search-wrap">
-                    <input type="search" class="search-input" placeholder="<?php echo esc_attr_x('搜索...', 'placeholder', 'text_domain'); ?>" 
+                    <input type="search" class="search-input" placeholder="<?php echo esc_attr_x('搜尋...', 'placeholder', 'text_domain'); ?>" 
                            value="<?php echo get_search_query(); ?>" name="s" required>
                     <button type="submit" class="search-submit">
                         <i class="fa fa-search"></i>
@@ -40,7 +40,7 @@ class widget_search extends WP_Widget {
     }
 
     public function form($instance) {
-        $title = !empty($instance['title']) ? $instance['title'] : __('搜索', 'text_domain');
+        $title = !empty($instance['title']) ? $instance['title'] : __('搜尋', 'text_domain');
         ?>
         <p>
             <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('标题:'); ?></label>

@@ -9,8 +9,8 @@ if(!defined('ABSPATH')){echo'Look your sister';exit;}
 ?>
                   <div class="card border-primary mb-4 mt-3 border-1 shadow-sm">
                         <div class="card-header border-0 bg-primary bg-opacity-10 py-3">
-                           <h3 class="mb-1 text-primary-emphasis">在线充值</h3>
-                           <p class="mb-0 fs-6 text-primary-emphasis">充值说明：1 元 = <?php echo get_option('ice_proportion_alipay').' '.get_option('ice_name_alipay')?>请根据需求充值</p>
+                           <h3 class="mb-1 text-primary-emphasis">在线儲值</h3>
+                           <p class="mb-0 fs-6 text-primary-emphasis">儲值说明：1 元 = <?php echo get_option('ice_proportion_alipay').' '.get_option('ice_name_alipay')?>请根据需求儲值</p>
                         </div>
                         <div class="card-body">
                            <div class="row">
@@ -18,7 +18,7 @@ if(!defined('ABSPATH')){echo'Look your sister';exit;}
                                  <div class="mt-4">
                            <form class="row g-3 needs-validation" id="online-form">
                               <div class="col-lg-4 col-md-12">
-                                 <label for="ice_money" class="form-label">充值金额</label>
+                                 <label for="ice_money" class="form-label">儲值金额</label>
                                  <input type="text" class="form-control fontsize"  id="ice_money" name="ice_money" placeholder="输入整数" required="">
                               </div>
                               <div class="col-lg-4 col-md-12">
@@ -191,7 +191,7 @@ if(!defined('ABSPATH')){echo'Look your sister';exit;}
                                     </select>                 
                               </div>
                               <div class="col-12">
-                                 <button class="btn btn-primary fontsize" type="submit">在线充值</button>
+                                 <button class="btn btn-primary fontsize" type="submit">在线儲值</button>
                               </div>
                            </form>
                               </div>
@@ -201,8 +201,8 @@ if(!defined('ABSPATH')){echo'Look your sister';exit;}
                      </div>
                   <div class="card border-primary mb-4 mt-3 border-1 shadow-sm">
                         <div class="card-header border-0 bg-primary bg-opacity-10 py-3">
-                           <h3 class="mb-1 text-primary-emphasis">卡密充值</h3>
-                           <p class="mb-0 fs-6 text-primary-emphasis">充值说明：1 元 = <?php echo get_option('ice_proportion_alipay').' '.get_option('ice_name_alipay')?>请根据需求充值</p>
+                           <h3 class="mb-1 text-primary-emphasis">卡密儲值</h3>
+                           <p class="mb-0 fs-6 text-primary-emphasis">儲值说明：1 元 = <?php echo get_option('ice_proportion_alipay').' '.get_option('ice_name_alipay')?>请根据需求儲值</p>
                         </div>
                         <div class="card-body">
                            <div class="row">
@@ -216,7 +216,7 @@ if(!defined('ABSPATH')){echo'Look your sister';exit;}
                               <input type="text" id="epdcardpass" name="epdcardpass" class="form-control fontsize" placeholder="输入卡密" required="required">
                               </div>
                               <div class="col-12">
-                                 <button class="btn btn-primary fontsize" type="submit">卡号充值</button>
+                                 <button class="btn btn-primary fontsize" type="submit">卡号儲值</button>
                               </div>
                            </form> 
                               </div>

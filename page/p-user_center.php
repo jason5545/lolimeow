@@ -163,7 +163,7 @@ $current_user = wp_get_current_user();
                                 'order' => '订单管理',
                                 'vip' => '会员订阅',
                                 'money' => '资产管理',
-                                'recharge' => '充值记录',
+                                'recharge' => '儲值记录',
                                 'consumption' => '消费记录',
                                 'collect' => '我的收藏',
                                 'comment' => '我的评论',
@@ -180,7 +180,7 @@ $current_user = wp_get_current_user();
                                  <?php endif;?>
                               <?php endif;?>
                               <a href="?items=money" class="btn btn-outline-primary">
-                                 积分充值
+                                 积分儲值
                                  <span class="ms-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-arrow-up-right-circle-fill" viewBox="0 0 16 16">
                                        <path d="M0 8a8 8 0 1 0 16 0A8 8 0 0 0 0 8zm5.904 2.803a.5.5 0 1 1-.707-.707L9.293 6H6.525a.5.5 0 1 1 0-1H10.5a.5.5 0 0 1 .5.5v3.975a.5.5 0 0 1-1 0V6.707l-4.096 4.096z"></path>

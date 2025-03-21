@@ -59,7 +59,7 @@ if(!defined('ABSPATH')){echo'Look your sister';exit;}
                         <li class="nav-item">
                            <a class="nav-link <?php if($items == 'recharge') {?>active<?php }?>" href="?items=recharge">
                               <i class="align-bottom fa fa-credit-card"></i>
-                              <span class="ms-2">充值记录</span>
+                              <span class="ms-2">儲值记录</span>
                            </a>
                         </li>
                         <li class="nav-item">

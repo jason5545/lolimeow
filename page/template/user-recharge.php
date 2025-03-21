@@ -30,13 +30,13 @@ global $wpdb, $current_user;
                                              echo "<tr>\n";
                                              echo "<td>$value->ice_money</td>\n";
                                              if(intval($value->ice_note)==0){
-                                                echo "<td>".__('在线线充值','erphpdown')."</td>\n";
+                                                echo "<td>".__('在线线儲值','erphpdown')."</td>\n";
                                              }elseif(intval($value->ice_note)==1){
-                                                echo "<td>".__('后台充值','erphpdown')."</td>\n";
+                                                echo "<td>".__('后台儲值','erphpdown')."</td>\n";
                                              }elseif(intval($value->ice_note)==4){
                                                 echo "<td>".__('积分兑换','erphpdown')."</td>\n";
                                              }elseif(intval($value->ice_note)==6){
-                                                echo "<td>".__('充值卡','erphpdown')."</td>\n";
+                                                echo "<td>".__('儲值卡','erphpdown')."</td>\n";
                                              }else{
                                                 echo "<td>".__('未知','erphpdown')."</td>\n";
                                              }

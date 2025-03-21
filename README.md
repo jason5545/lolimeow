@@ -16,8 +16,8 @@
 <br>
 **2/21 更新**
 <br>
-<br>1.V13.01 新增登入可見短代碼 \core\module\fun-shortcode.php 可單獨替換檔案
-<br>2.V13.01 最佳化註冊電子郵件通知 \core\module\fun-msg.php 、\core\module\fun-user.php 可單獨替換檔案
+<br>1.V13.01 新增登入可見短代碼 \core\module\fun-shortcode.php 可單獨取代檔案
+<br>2.V13.01 最佳化註冊電子郵件通知 \core\module\fun-msg.php 、\core\module\fun-user.php 可單獨取代檔案
 <br>3.V13.01 刪除多餘無用檔案 \page\page-erphpdown-user.php 可單獨刪除檔案
 <br>
 **V13.02**

@@ -255,7 +255,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // 卡密充值表单处理
+    // 卡密儲值表单处理
     const cardForm = document.getElementById('card-form');
     if (cardForm) {
         cardForm.addEventListener('submit', async function(e) {
@@ -287,7 +287,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // 在线充值表单处理
+    // 在线儲值表单处理
     const onlineForm = document.getElementById('online-form');
     if (onlineForm) {
         onlineForm.addEventListener('submit', function(event) {

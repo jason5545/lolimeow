@@ -46,7 +46,7 @@ function boxmoe_reset_password_link_page(){
     }
 }
 
-// 充值卡购买链接设置--------------------------boxmoe.com--------------------------
+// 儲值卡购买链接设置--------------------------boxmoe.com--------------------------
 function boxmoe_czcard_src(){
     $boxmoe_czcard_src = get_boxmoe('boxmoe_czcard_src');
     if($boxmoe_czcard_src){

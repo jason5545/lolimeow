@@ -4,7 +4,7 @@
  * @package lolimeow
  */
 
-// 安全設置--------------------------boxmoe.com--------------------------
+// 安全設定--------------------------boxmoe.com--------------------------
 if(!defined('ABSPATH')){
     echo'Look your sister';
     exit;
@@ -20,10 +20,10 @@ if(get_boxmoe('boxmoe_article_support_switch')){
     add_theme_support('post-formats', array('image', 'video', 'audio', 'quote', 'link'));
 }
 
-//開啟特色文章縮略圖
+//開啟特色文章縮圖
     add_theme_support('post-thumbnails');
 	
-// 縮略圖尺寸設定--------------------------boxmoe.com--------------------------
+// 縮圖尺寸設定--------------------------boxmoe.com--------------------------
 if(get_boxmoe('boxmoe_article_thumbnail_size_switch')){
 function boxmoe_article_thumbnail_size($size) {
     $width  = intval(get_boxmoe('boxmoe_article_thumbnail_width')) ?: 300; 
@@ -33,7 +33,7 @@ function boxmoe_article_thumbnail_size($size) {
 add_filter('post_thumbnail_size', 'boxmoe_article_thumbnail_size');
 }
 
-// 文章縮略圖邏輯--------------------------boxmoe.com--------------------------
+// 文章縮圖邏輯--------------------------boxmoe.com--------------------------
 function boxmoe_article_thumbnail_src() {
     global $post;
     $src='';
@@ -114,7 +114,7 @@ function _get_excerpt($limit = 60, $after = '...') {
 	}
 }
 
-// 表格替換--------------------------boxmoe.com--------------------------
+// 表格取代--------------------------boxmoe.com--------------------------
 function boxmoe_table_replace($text){
 	$replace = array( '<table>' => '<div class="table-responsive"><table class="table" >','</table>' => '</table></div>' );
 	$text = str_replace(array_keys($replace), $replace, $text);
@@ -141,7 +141,7 @@ function boxmoe_prettify_replace($text){
 	return $text;}
 add_filter('the_content', 'boxmoe_prettify_replace');
 
-// 自動設置特色圖片--------------------------boxmoe.com--------------------------
+// 自動設定特色圖片--------------------------boxmoe.com--------------------------
 function autoset_featured_image() {
     global $post;
     if (!is_object($post)) return;

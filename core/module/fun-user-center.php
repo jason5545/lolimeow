@@ -180,13 +180,13 @@ function boxmoe_form_money_card() {
         $result = checkDoCardResult($cardnum, $cardpass);
         
         if ($result == '5') {
-            wp_send_json_error(array('message' => '充值卡不存在'));
+            wp_send_json_error(array('message' => '儲值卡不存在'));
         } elseif ($result == '0') {
-            wp_send_json_error(array('message' => '充值卡已被使用'));
+            wp_send_json_error(array('message' => '儲值卡已被使用'));
         } elseif ($result == '2') {
-            wp_send_json_error(array('message' => '充值卡密错误'));
+            wp_send_json_error(array('message' => '儲值卡密错误'));
         } elseif ($result == '1') {
-            wp_send_json_success(array('message' => '充值成功'));
+            wp_send_json_success(array('message' => '儲值成功'));
         } else {
             wp_send_json_error(array('message' => '系统超时，请稍后重试'));
         }

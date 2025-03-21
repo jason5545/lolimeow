@@ -4,7 +4,7 @@
  * @package lolimeow
  */
 
-//boxmoe.com===安全設置=阻止直接訪問主題文件
+//boxmoe.com===安全設定=阻止直接訪問主題文件
 if(!defined('ABSPATH')){
     echo'Look your sister';
     exit;

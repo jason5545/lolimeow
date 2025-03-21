@@ -4,7 +4,7 @@
  * @package lolimeow
  */
 
-//boxmoe.com===安全設定=阻止直接存取主題檔案
+//boxmoe.com===安全設定=防止直接存取主題檔案
 if(!defined('ABSPATH')){
     echo'看你妹';
     exit;

@@ -4,7 +4,7 @@
  * @package lolimeow
  */
 
-//boxmoe.com===安全設定=阻止直接存取主題檔案
+//boxmoe.com===安全設定=防止直接存取主題檔案
 if(!defined('ABSPATH')){
     echo'看你妹';
     exit;
@@ -117,7 +117,7 @@ $options[] = array(
             'class' => 'mini',
             'type' => 'text',
             'std' => '',
-            'desc' => __('QQ號碼\群號、TG用戶\群組\頻道ID,留空則不使用', 'ui_boxmoe_com'),
+            'desc' => __('QQ號碼\群號、TG使用者\群組\頻道ID,留空則不使用', 'ui_boxmoe_com'),
         );
 
 

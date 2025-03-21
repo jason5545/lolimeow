@@ -4,7 +4,7 @@
  * @package lolimeow
  */
 
-//boxmoe.com===安全設定=阻止直接存取主題檔案
+//boxmoe.com===安全設定=防止直接存取主題檔案
 if(!defined('ABSPATH')){
     echo'看你妹';
     exit;
@@ -34,15 +34,15 @@ $options[] = array(
      <p>2.嚴禁利用本主題嚴重侵犯他人隱私權，如主題使用者不能遵守此規定，請立即刪除；</p>
      <p>3.使用主題請遵守網站伺服器當地相關法律和站長當地相關法律，如不能遵守請立即刪除；</p>
      <p>4.主題不支援任何作為非法違規用途網站！如不能遵守請立即刪除；</p>
-     <p>5.主題開放原始碼無任何加密檔案，對於因用戶使用本主題而造成自身或他人隱私洩露，等任何不良後果，均由用戶自行承擔，主題作者不負任何責任；</p>
-     <p>6.本主題共享下載，如果用戶自行下載使用，即表明用戶自願並接受本協議所有條款。 如果用戶不接受本協議，請立即刪除；</p>
+     <p>5.主題開放原始碼無任何加密檔案，對於因使用者使用本主題而造成自身或他人隱私洩露，等任何不良後果，均由使用者自行承擔，主題作者不負任何責任；</p>
+     <p>6.本主題共享下載，如果使用者自行下載使用，即表明使用者自願並接受本協議所有條款。 如果使用者不接受本協議，請立即刪除；</p>
     ', 'ui_boxmoe_com'),
     'type' => 'info');		
 $options[] = array(
     'name' => __('主題資訊', 'ui_boxmoe_com'), 
     'id' => 'banquan',
     'desc' => __('
-     <p>當前版本：'.$THEME_VERSION.'</p>
+     <p>目前版本：'.$THEME_VERSION.'</p>
      <p>最新版本：<span id="vbox"></span></p>
      <p>檢視主題：<a href="https://www.boxmoe.com/468.html" target="_blank" rel="external nofollow" class="url">更新日誌</a></p>		
      <p>主題QQ群：<a href="http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=YLb_jw14jGMh1q8cMwga9UZcWp6JDPsS&authKey=x8YpdYVOU%2BIyiJ8uSJ2gT9UJ%2B%2BByQjnaHTTaTjMAu9YIERV20NnM%2F7tfBB%2B39peo&noverify=0&group_code=24847519" target="_blank" rel="external nofollow" class="url">24847519</a></p>

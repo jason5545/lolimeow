@@ -3,7 +3,7 @@
  * @link https://www.boxmoe.com
  * @package lolimeow
  */
-//boxmoe.com===安全設定=阻止直接存取主題文件
+//boxmoe.com===安全設定=防止直接存取主題文件
 if(!defined('ABSPATH')){echo'Look your sister';exit;}
 if(!isset($user_ID)) {
     $user_ID=null;
@@ -52,7 +52,7 @@ if(!isset($user_ID)) {
                                     $per_page = get_option('comments_per_page');
                                     $current_page = isset($comment_args['current_page']) ? $comment_args['current_page'] : 1;
                                     
-                                    // 計算當前頁面應該顯示的留言起始位置
+                                    // 計算目前頁面應該顯示的留言起始位置
                                     $start = ($current_page - 1) * $per_page;
                                     $end = $start + $per_page;
                                     $comment_count = 0;
@@ -119,7 +119,7 @@ if(!isset($user_ID)) {
                                             <input type="hidden" name="email" value="<?php echo esc_attr(wp_get_current_user()->user_email); ?>">
                                         </div>
                                         <div class="user-start">
-                                            [當前狀態：已登錄，用戶]
+                                            [目前狀態：已登入，使用者]
                                         </div>
                                     </div>
                                     <?php endif;?>
@@ -136,12 +136,12 @@ if(!isset($user_ID)) {
                                         </div>
                                         <div class="user-start">
                                            <?php if (!empty($comment_author)) {
-                                            echo '[當前狀態：未登錄，訪客]';
+                                            echo '[目前狀態：未登入，訪客]';
                                            }else{
                                             if (!get_boxmoe('boxmoe_comment_login_switch')) :
                                             echo '[填寫昵稱電子郵件信箱後可以留言]';
                                             else:
-                                            echo '[登錄後可以留言]';
+                                            echo '[登入後可以留言]';
                                             endif;
                                            }?> 
                                         </div>
@@ -163,13 +163,13 @@ if(!isset($user_ID)) {
                                     <?php else:?>
                                     <a href="<?php echo wp_login_url(); ?>" target="_blank" type="button" class="switch-account-btn">
                                         <i class="fa fa-sign-in"></i>
-                                        用戶登錄
+                                        使用者登入
                                     </a>
                                     <?php endif;?>
                                     <?php else:?>
                                     <a href="<?php echo wp_logout_url(); ?>" type="button" class="switch-account-btn">
                                         <i class="fa fa-sign-out"></i>
-                                        退出登錄
+                                        退出登入
                                     </a>
                                     <?php endif;?>
                                 </div>

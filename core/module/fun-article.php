@@ -347,7 +347,7 @@ function isPostFavorited($post_id) {
 // 處理文章收藏
 function boxmoe_post_favorite() {
     if (!is_user_logged_in()) {
-        wp_send_json_error(['message' => '請先登錄']);
+        wp_send_json_error(['message' => '請先登入']);
         return;
     }
 
@@ -393,7 +393,7 @@ add_action('wp_ajax_post_favorite', 'boxmoe_post_favorite');
 // 處理刪除收藏
 function boxmoe_delete_favorite() {
     if (!is_user_logged_in()) {
-        wp_send_json_error(['message' => '請先登錄']);
+        wp_send_json_error(['message' => '請先登入']);
         return;
     }
 

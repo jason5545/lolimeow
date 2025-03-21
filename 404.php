@@ -3,7 +3,7 @@
  * @link https://www.boxmoe.com
  * @package lolimeow
  */
-//boxmoe.com===安全設定=阻止直接存取主題文件
+//boxmoe.com===安全設定=防止直接存取主題文件
 if(!defined('ABSPATH')){echo'Look your sister';exit;}
 ?>
 <html <?php language_attributes(); ?>>

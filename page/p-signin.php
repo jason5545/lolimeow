@@ -4,7 +4,7 @@
  * @link https://www.boxmoe.com
  * @package lolimeow
  */
-//boxmoe.com===安全设置=阻止直接访问主题文件
+//boxmoe.com===安全设置=防止直接访问主题文件
 if(!defined('ABSPATH')){echo'Look your sister';exit;}
 //如果用户已经登陆那么跳转到首页
 if (is_user_logged_in()){
@@ -44,7 +44,7 @@ if (is_user_logged_in()){
                            <span class="text-danger">*</span>
                         </label>
                         <input type="text" name="username" class="form-control" id="username" required>
-                        <div class="invalid-feedback">請輸入用戶名或電子郵件信箱。</div>
+                        <div class="invalid-feedback">請輸入使用者名或電子郵件信箱。</div>
                      </div>
                      <div class="mb-3">
                         <label for="password" class="form-label">密码<span class="text-danger">*</span></label>

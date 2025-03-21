@@ -4,7 +4,7 @@
  * @package lolimeow
  */
 
-//boxmoe.com===安全設定=阻止直接訪問主題文件
+//boxmoe.com===安全設定=防止直接存取主題文件
 if(!defined('ABSPATH')){
     echo'Look your sister';
     exit;
@@ -36,7 +36,7 @@ function boxmoe_smtp_mail_template($to, $subject, $message) {
     return $result;
 }
 
-//新用戶註冊消息通知
+//新使用者註冊消息通知
 function boxmoe_new_user_register($user_id){
     $user = get_user_by('id', $user_id);
     $subject = '[' . get_option('blogname') . '] 有新註冊會員！';
@@ -339,7 +339,7 @@ function boxmoe_robot_msg_comment($comment_id){
 //新註冊會員機器人通知	
 function boxmoe_robot_msg_reguser($user_id='',$user_email=''){	
 	$text = '['.get_bloginfo('name').']新會員註冊通知！';
-	$message = $text . "\n" ."用戶名：$user_id \n電子郵件信箱:$user_email";
+	$message = $text . "\n" ."使用者名：$user_id \n電子郵件信箱:$user_email";
 		if(get_boxmoe('boxmoe_robot_channel') == 'qq_group' ){
 			$msgid	=	get_boxmoe('boxmoe_robot_msg_user');
             $apiurl	=	get_boxmoe('boxmoe_robot_api_url').'/send_private_msg?group_id='.$msgid;

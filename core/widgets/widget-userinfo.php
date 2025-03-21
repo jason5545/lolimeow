@@ -3,7 +3,7 @@
  * @link https://www.boxmoe.com
  * @package lolimeow
  */
-//=======安全设置，阻止直接访问主题文件=======
+//=======安全设置，防止直接访问主题文件=======
 if (!defined('ABSPATH')) {echo'Look your sister';exit;}
 //=========================================
 
@@ -57,7 +57,7 @@ class widget_userinfo extends WP_Widget {
 				</div>
 				<div class="stat-item">
 					<div class="stat-value">'. $this->format_number(get_user_count()) .'</div>
-					<div class="stat-label">用戶</div>
+					<div class="stat-label">使用者</div>
 				</div>
 			</div>
 		</div>';
@@ -107,7 +107,7 @@ class widget_userinfo extends WP_Widget {
 		</p>
 		<p>
 			<label>
-				<?php echo __('用戶ID：', 'boxmoe-com') ?>
+				<?php echo __('使用者ID：', 'boxmoe-com') ?>
 				<input class="widefat" id="<?php echo $this->get_field_id('avatarid'); ?>" 
 					name="<?php echo $this->get_field_name('avatarid'); ?>" type="number" 
 					value="<?php echo esc_attr($instance['avatarid']); ?>" />

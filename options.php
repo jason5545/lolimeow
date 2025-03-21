@@ -4,7 +4,7 @@
  * @package lolimeow
  */
 
-//安全設定=阻止直接存取主題文件
+//安全設定=防止直接存取主題文件
 if(!defined('ABSPATH')){
     echo'看你妹';
     exit;
@@ -47,7 +47,7 @@ require_once get_template_directory() . '/core/panel/settings/set-seo.php';
 require_once get_template_directory() . '/core/panel/settings/set-artice.php';
 //留言設定-----------------------------------------------------------
 require_once get_template_directory() . '/core/panel/settings/set-comment.php';  
-//用戶設定-----------------------------------------------------------
+//使用者設定-----------------------------------------------------------
 require_once get_template_directory() . '/core/panel/settings/set-user.php';
 //社交圖示-----------------------------------------------------------
 require_once get_template_directory() . '/core/panel/settings/set-social.php';

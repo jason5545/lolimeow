@@ -3,7 +3,7 @@
  * @link https://www.boxmoe.com
  * @package lolimeow
  */
-//=======安全設定，阻止直接存取主題檔案=======
+//=======安全設定，防止直接存取主題檔案=======
 if (!defined('ABSPATH')) {echo'Look your sister';exit;}
 //=========================================
 class widget_comments extends WP_Widget {

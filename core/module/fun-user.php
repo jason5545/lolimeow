@@ -99,7 +99,7 @@ function handle_user_login() {
         
         switch ($error_code) {
             case 'invalid_username':
-                $error_message = '用戶不存在，如果不確定可以用電子郵件信箱登錄';
+                $error_message = '使用者不存在，如果不確定可以用電子郵件信箱登入';
                 break;
             case 'incorrect_password':
                 $error_message = '密码错误';

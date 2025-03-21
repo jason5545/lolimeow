@@ -3,7 +3,7 @@
  * @link https://www.boxmoe.com
  * @package lolimeow
  */
-//boxmoe.com===安全设置=阻止直接访问主题文件
+//boxmoe.com===安全设置=防止直接访问主题文件
 if(!defined('ABSPATH')){echo'Look your sister';exit;}
 global $wpdb, $current_user;
 $total_trade   = $wpdb->get_var("SELECT COUNT(ice_id) FROM $wpdb->icealipay WHERE ice_success>0 and ice_user_id=".$current_user->ID);

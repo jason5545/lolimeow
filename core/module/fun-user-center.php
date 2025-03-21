@@ -30,7 +30,7 @@ function boxmoe_upload_avatar() {
     $max_size = 1 * 1024 * 1024; // 1MB
 
     if (!in_array($file['type'], $allowed_types)) {
-        wp_send_json_error(['message' => '只支持 JPEG、PNG 和 GIF 格式']);
+        wp_send_json_error(['message' => '只支援 JPEG、PNG 和 GIF 格式']);
         return;
     }
 

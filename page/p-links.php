@@ -1,6 +1,6 @@
 <?php 
 /**
- * Template Name: 友情链接
+ * Template Name: 友情連結
  * @link https://www.boxmoe.com
  * @package lolimeow
  */
@@ -17,12 +17,16 @@ get_header();
                     </div>
                     <div class="bookmark">
                         <?php
-                        // 获取所有链接分类
+                        // 取得所有連結分類
                         $link_cats = get_terms('link_category');
                         
+                        // 記錄所有已分類連結的ID
+                        $categorized_link_ids = array();
+
+                        // 先顯示分類中的連結
                         if ($link_cats) {
                             foreach ($link_cats as $cat) {
-                                // 获取每个分类下的链接
+                                // 取得每個分類下的連結
                                 $links = get_bookmarks(array(
                                     'category' => $cat->term_id,
                                     'orderby' => 'rating',
@@ -37,6 +41,8 @@ get_header();
                                     echo '<ul class="main-reveal">';
                                     
                                     foreach ($links as $link) {
+                                        // 記錄已分類連結的ID
+                                        $categorized_link_ids[] = $link->link_id;
                                         ?>
                                         <li class="text-reveal">
                                             <a class="on" href="<?php echo esc_url($link->link_url); ?>" target="_blank">
@@ -59,8 +65,56 @@ get_header();
                                     echo '</ul>';
                                 }
                             }
-                        }else{
-                            echo '<p>暂无链接</p>';
+                        }
+
+                        // 取得真正未分類的連結（不在任何分類中的連結）
+                        $all_links = get_bookmarks(array(
+                            'orderby' => 'rating',
+                            'order' => 'DESC'
+                        ));
+
+                        $truly_uncategorized = array();
+                        foreach ($all_links as $link) {
+                            // 如果連結ID不在已分類連結ID陣列中，則添加到真正未分類陣列
+                            if (!in_array($link->link_id, $categorized_link_ids)) {
+                                $truly_uncategorized[] = $link;
+                            }
+                        }
+
+                        // 顯示真正未分類的連結
+                        if ($truly_uncategorized) {
+                            echo '<h2 class="main-reveal">';
+                            echo '<span>未分類 (' . count($truly_uncategorized) . ')</span>';
+                            echo '<p>未歸類的友情連結</p>';
+                            echo '</h2>';
+                            echo '<ul class="main-reveal">';
+                            
+                            foreach ($truly_uncategorized as $link) {
+                            ?>
+                            <li class="text-reveal">
+                                <a class="on" href="<?php echo esc_url($link->link_url); ?>" target="_blank">
+                                    <div class="icon">
+                                        <img src="<?php echo esc_url($link->link_image); ?>" alt="<?php echo esc_attr($link->link_name); ?>">
+                                    </div>
+                                    <div class="info">
+                                        <h3><?php echo esc_html($link->link_name); ?></h3>
+                                        <p title="<?php echo esc_attr($link->link_description); ?>"><?php echo esc_html($link->link_description); ?></p>
+                                    </div>
+                                    <div class="profile">
+                                        <div class="imgbox">
+                                            <img src="<?php echo esc_url($link->link_image); ?>" alt="<?php echo esc_attr($link->link_name); ?>">
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <?php
+                            }
+                            echo '</ul>';
+                        }
+
+                        // 如果沒有任何連結，顯示提示資訊
+                        if (empty($all_links)) {
+                            echo '<p>暫無連結</p>';
                         }
                         ?>
                     </div>

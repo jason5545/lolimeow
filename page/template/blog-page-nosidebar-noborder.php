@@ -91,7 +91,7 @@ if(!defined('ABSPATH')){echo'Look your sister';exit;}
                           <div class="reward-content">
                               <div class="reward-header">
 
-                                  <h5>感谢您的支持</h5>
+                                  <h5>感謝您的支持</h5>
                                   <button class="reward-close">&times;</button>
                               </div>
                               <div class="reward-body">

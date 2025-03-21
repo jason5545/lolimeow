@@ -92,7 +92,7 @@ if(!defined('ABSPATH')){echo'Look your sister';exit;}
                             <form id="avatarForm">
                                 <input type="file" id="avatarInput" accept="image/*" style="display: none;">
                                 <button id="uploadAvatarButton" class="btn btn-outline-primary btn-sm mb-0 ms-2">上傳頭像</button>
-                                <small class="ms-3">支持 *.jpeg, *.jpg, *.png, *.gif 最大1MB</small>
+                                <small class="ms-3">支援 *.jpeg, *.jpg, *.png, *.gif 最大1MB</small>
                             </form>
                            </div>                          
                         </div>

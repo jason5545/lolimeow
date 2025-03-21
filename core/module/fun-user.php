@@ -99,7 +99,7 @@ function handle_user_login() {
         
         switch ($error_code) {
             case 'invalid_username':
-                $error_message = '用户不存在，如果不确定可以用邮箱登录';
+                $error_message = '用戶不存在，如果不確定可以用電子郵件信箱登錄';
                 break;
             case 'incorrect_password':
                 $error_message = '密码错误';
@@ -171,13 +171,13 @@ function handle_user_signup() {
     }   
     if (!is_email($formData['email'])) {
         wp_send_json_error(array(
-            'message' => '请输入有效的邮箱地址'
+            'message' => '請輸入有效的電子郵件信箱地址'
         ));
         exit;
     }    
     if (email_exists($formData['email'])) {
         wp_send_json_error(array(
-            'message' => '该邮箱已被注册'
+            'message' => '該電子郵件信箱已被註冊'
         ));
         exit;
     }
@@ -215,10 +215,10 @@ function handle_user_signup() {
         
         switch ($error_code) {
             case 'existing_user_login':
-                $error_message = '该用户名已被使用';
+                $error_message = '該用户名已被使用';
                 break;
             case 'existing_user_email':
-                $error_message = '该邮箱已被注册';
+                $error_message = '該電子郵件信箱已被註冊';
                 break;
             default:
                 $error_message = '注册失败，请稍后重试';
@@ -269,11 +269,11 @@ function handle_send_verification_code() {
     $email = sanitize_email($_POST['email']);
     
     if (!is_email($email)) {
-        wp_send_json_error(array('message' => '请输入有效的邮箱地址'));
+        wp_send_json_error(array('message' => '請輸入有效的電子郵件信箱地址'));
         exit;
     }  
     if (email_exists($email)) {
-        wp_send_json_error(array('message' => '该邮箱已被注册'));
+        wp_send_json_error(array('message' => '該電子郵件信箱已被註冊'));
         exit;
     }
     $verification_code = sprintf("%06d", mt_rand(0, 999999));
@@ -298,21 +298,21 @@ function handle_reset_password_request() {
     $user_email = sanitize_email($_POST['user_email']);
     
     if (empty($user_email) || !is_email($user_email)) {
-        wp_send_json_error(array('message' => '请输入有效的邮箱地址'));
+        wp_send_json_error(array('message' => '請輸入有效的電子郵件信箱地址'));
         exit;
     }
 
     $user = get_user_by('email', $user_email);
     
     if (!$user) {
-        wp_send_json_error(array('message' => '该邮箱地址未注册'));
+        wp_send_json_error(array('message' => '該電子郵件信箱地址未註冊'));
         exit;
     }
 
     if(boxmoe_reset_password_email($user->user_login)){
-        wp_send_json_success(array('message' => '重置密码链接已发送到您的邮箱，请查收'));
+        wp_send_json_success(array('message' => '重設密碼連結已發送到您的電子郵件信箱，請查收'));
     }else{
-        wp_send_json_error(array('message' => '发送邮件失败，请稍后重试'));
+        wp_send_json_error(array('message' => '發送郵件失敗，請稍後重試'));
     }
     exit;
 }

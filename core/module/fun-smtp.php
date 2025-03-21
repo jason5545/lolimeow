@@ -68,19 +68,19 @@ if(get_boxmoe('boxmoe_smtp_mail_switch')){
                         <td><input type="text" name="smtp_port" value="<?php echo esc_attr(get_option('boxmoe_smtp_port')); ?>" class="regular-text"></td>
                     </tr>
                     <tr>
-                        <th>邮箱账号</th>
+                        <th>電子郵件信箱賬號</th>
                         <td><input type="text" name="smtp_user" value="<?php echo esc_attr(get_option('boxmoe_smtp_user')); ?>" class="regular-text"></td>
                     </tr>
                     <tr>
-                        <th>邮箱密码</th>
+                        <th>電子郵件信箱密碼</th>
                         <td><input type="password" name="smtp_pass" value="<?php echo esc_attr(get_option('boxmoe_smtp_pass')); ?>" class="regular-text"></td>
                     </tr>
                     <tr>
-                        <th>发件人邮箱</th>
+                        <th>發件人電子郵件信箱</th>
                         <td><input type="text" name="smtp_from" value="<?php echo esc_attr(get_option('boxmoe_smtp_from')); ?>" class="regular-text"></td>
                     </tr>
                     <tr>
-                        <th>发件人名称</th>
+                        <th>發件人名称</th>
                         <td><input type="text" name="smtp_name" value="<?php echo esc_attr(get_option('boxmoe_smtp_name')); ?>" class="regular-text"></td>
                     </tr>
                 </table>
@@ -94,10 +94,10 @@ if(get_boxmoe('boxmoe_smtp_mail_switch')){
             <form method="post">
                 <table class="form-table">
                     <tr>
-                        <th>测试收件邮箱</th>
+                        <th>測試收件電子郵件信箱</th>
                         <td>
                             <input type="email" name="test_email" class="regular-text" required>
-                            <p class="description">请输入用于测试的收件邮箱地址</p>
+                            <p class="description">請輸入用於測試的收件電子郵件信箱地址</p>
                         </td>
                     </tr>
                 </table>

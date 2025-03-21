@@ -45,11 +45,11 @@ if (is_user_logged_in()){
                            </div>
                            <div class="mb-3">
                               <label for="signupEmailInput" class="form-label">
-                                 邮箱
+                                 電子郵件信箱
                                  <span class="text-danger">*</span>
                               </label>
                               <input type="email" class="form-control" name="email" id="signupEmailInput" required="">
-                              <div class="invalid-feedback">请输入邮箱。</div>
+                              <div class="invalid-feedback">請輸入電子郵件信箱。</div>
                            </div>
                            <div class="mb-3">
                               <label for="signupVerificationCode" class="form-label">验证码<span class="text-danger">*</span></label>
@@ -144,7 +144,7 @@ if (is_user_logged_in()){
         const email = document.getElementById('signupEmailInput').value;
         if (!email) {
             document.getElementById('signup-message').innerHTML = 
-                '<div class="alert alert-danger mt-3">请先填写邮箱地址</div>';
+                '<div class="alert alert-danger mt-3">請先填寫電子郵件信箱地址</div>';
             return;
         }
         
@@ -174,7 +174,7 @@ if (is_user_logged_in()){
         .then(response => {
             if(response.success) {
                 document.getElementById('signup-message').innerHTML = 
-                    '<div class="alert alert-success mt-3">验证码已发送到您的邮箱</div>';
+                    '<div class="alert alert-success mt-3">驗證碼已發送到您的電子郵件信箱</div>';
             } else {
                 document.getElementById('signup-message').innerHTML = 
                     '<div class="alert alert-danger mt-3">' + response.data.message + '</div>';

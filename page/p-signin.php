@@ -44,7 +44,7 @@ if (is_user_logged_in()){
                            <span class="text-danger">*</span>
                         </label>
                         <input type="text" name="username" class="form-control" id="username" required>
-                        <div class="invalid-feedback">请输入用户名或邮箱。</div>
+                        <div class="invalid-feedback">請輸入用戶名或電子郵件信箱。</div>
                      </div>
                      <div class="mb-3">
                         <label for="password" class="form-label">密码<span class="text-danger">*</span></label>

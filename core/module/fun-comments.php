@@ -1,10 +1,10 @@
 <?php
-// 安全设置--------------------------boxmoe.com--------------------------
+// 安全設定--------------------------boxmoe.com--------------------------
 if(!defined('ABSPATH')){
     echo'Look your sister';
     exit;
 }
-// 添加 session 处理函数
+// 新增 session 處理函數
 function init_comment_session() {
     if (!session_id()) {
         session_start();
@@ -15,7 +15,7 @@ function boxmoe_comment($comment, $args = array(), $depth = 1) {
     $GLOBALS['comment'] = $comment;
     $defaults = array(
         'max_depth' => 5,
-        'reply_text' => '回复'
+        'reply_text' => '回覆'
     );
     $args = wp_parse_args($args, $defaults);
     $post_author_id = get_post_field('post_author', $comment->comment_post_ID);
@@ -24,7 +24,7 @@ function boxmoe_comment($comment, $args = array(), $depth = 1) {
     ?>
     <div id="comment-<?php comment_ID(); ?>" class="comment-item <?php echo $depth > 1 ? 'child' : 'parent'; ?>">
             <div class="comment-avatar">
-            <img src="<?php echo boxmoe_lazy_load_images(); ?>" data-src="<?php echo boxmoe_get_avatar_url($comment->comment_author_email, 60); ?>" alt="评论头像" class="lazy">
+            <img src="<?php echo boxmoe_lazy_load_images(); ?>" data-src="<?php echo boxmoe_get_avatar_url($comment->comment_author_email, 60); ?>" alt="留言頭像" class="lazy">
             </div>
         <div class="comment-content">
             <div class="comment-meta">
@@ -39,7 +39,7 @@ function boxmoe_comment($comment, $args = array(), $depth = 1) {
                     ?>
                 </span>
                 <?php if (user_can($comment->user_id, 'administrator')): ?>
-                    <span class="comment-badge"><?php echo get_boxmoe('boxmoe_comment_blogger_tag')?get_boxmoe('boxmoe_comment_blogger_tag'):'博主'; ?></span>
+                    <span class="comment-badge"><?php echo get_boxmoe('boxmoe_comment_blogger_tag')?get_boxmoe('boxmoe_comment_blogger_tag'):'部落格主'; ?></span>
                 <?php endif; ?>
                 <span class="comment-date"><?php comment_date('Y年m月d日'); ?></span>
             </div>
@@ -52,16 +52,16 @@ function boxmoe_comment($comment, $args = array(), $depth = 1) {
                          ($comment->comment_parent > 0 && $current_user_id == get_comment($comment->comment_parent)->user_id))
                     ) {
                         echo esc_html(get_comment_text());
-                        echo '<span class="private-comment-badge">仅作者可见</span>';
+                        echo '<span class="private-comment-badge">僅作者可見</span>';
                     } else {
-                        echo '<p class="private-comment-notice">此评论仅作者可见</p>';
+                        echo '<p class="private-comment-notice">此留言僅作者可見</p>';
                     }
                 } else {
                     echo esc_html(get_comment_text());
                 }
                 ?>   
                 <?php if ( $comment->comment_approved == '0' ) : ?>
-                    <span class="comment-awaiting-moderation">您的评论正在等待审核...</span>
+                    <span class="comment-awaiting-moderation">您的留言正在等待審核...</span>
                 <?php endif; ?>
             </div>
 
@@ -69,7 +69,7 @@ function boxmoe_comment($comment, $args = array(), $depth = 1) {
             <div class="comment-actions">
                 <?php
                 comment_reply_link(array_merge($args, array(
-                    'reply_text' => '<i class="fa fa-reply"></i>回复',
+                    'reply_text' => '<i class="fa fa-reply"></i>回覆',
                     'depth' => $depth,
                     'max_depth' => $args['max_depth'],
                     'before' => '',
@@ -136,7 +136,7 @@ add_action('wp_ajax_nopriv_ajax_comment', 'ajax_comment_callback');
 
 function ajax_comment_callback() {
     if (!check_ajax_referer('comment_nonce', 'security')) {
-        wp_send_json_error('非法请求');
+        wp_send_json_error('非法請求');
     }
 
     $comment_data = wp_unslash($_POST);
@@ -154,13 +154,13 @@ function ajax_comment_callback() {
         $current_time = time();
         $time_diff = $current_time - $last_comment_time;
         
-        // 设置最小评论间隔为20秒
+        // 設定最小留言間隔為20秒
         if ($time_diff < 20) {
-            wp_send_json_error('评论太快了，请稍等片刻再发表评论！');
+            wp_send_json_error('留言太快了，請稍等片刻再發表留言！');
         }
     }
 
-    // 检查重复评论
+    // 檢查重複留言
     $duplicate_check = array(
         'comment_post_ID' => $comment_data['comment_post_ID'],
         'comment_content' => $comment_data['comment'],
@@ -176,25 +176,25 @@ function ajax_comment_callback() {
     ));
     
     if (!empty($last_comment)) {
-        wp_send_json_error('您刚刚已经发表过相同的评论了，请稍后再试！');
+        wp_send_json_error('您剛剛已經發表過相同的留言了，請稍後再試！');
     }
 
     $comment_content = $comment_data['comment'];
     if(get_boxmoe('boxmoe_comment_english_switch')){
     if (preg_match('/^[\x20-\x7E\s]+$/', $comment_content)) {
-        wp_send_json_error('评论内容不能为纯英文');
+        wp_send_json_error('留言內容不能為純英文');
     }
     }
 
     $required_fields = array(
-        'comment_post_ID' => '文章ID不能为空',
-        'comment' => '评论内容不能为空'
+        'comment_post_ID' => '文章ID不能為空',
+        'comment' => '留言內容不能為空'
     );
 
 
     if (!is_user_logged_in()) {
-        $required_fields['author'] = '请填写昵称';
-        $required_fields['email'] = '请填写邮箱';
+        $required_fields['author'] = '請填寫暱稱';
+        $required_fields['email'] = '請填寫電子郵件信箱';
     }
     foreach ($required_fields as $field => $error) {
         if (empty($comment_data[$field])) {
@@ -230,7 +230,7 @@ function ajax_comment_callback() {
 
     $comment_id = wp_insert_comment($commentarr);
     if (!$comment_id) {
-        wp_send_json_error('评论提交失败，请稍后再试');
+        wp_send_json_error('留言提交失敗，請稍後再試');
     }
 
     if (isset($comment_data['private_comment'])) {
@@ -264,7 +264,7 @@ function ajax_comment_callback() {
 
     wp_send_json_success(array(
         'comment' => $comment_html,
-        'message' => '评论提交成功！',
+        'message' => '留言提交成功！',
         'clear_form' => true
     ));
 }
@@ -273,11 +273,11 @@ function disable_comment_flood_filter(){
 }
 add_action('init', 'disable_comment_flood_filter');
 
-// 全局停用默认通知
+// 全局停用默認通知
 add_filter('notify_post_author', '__return_false', 1);
 add_filter('notify_moderator', '__return_false', 1);
 
-// 添加后台评论回复的邮件通知
+// 新增後台留言回覆的郵件通知
 function boxmoe_admin_comment_reply($comment_id, $comment_object) {
     if (!get_boxmoe('boxmoe_smtp_mail_switch')) {
         return;

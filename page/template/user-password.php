@@ -7,7 +7,7 @@
 if(!defined('ABSPATH')){echo'Look your sister';exit;}
 
 ?>
-        <p class="fs-6 mb-2 text-muted">请自行保管好密码，密码遗忘只能通过邮箱找回！请保持邮箱有效可接收邮件。</p>
+        <p class="fs-6 mb-2 text-muted">請自行保管好密碼，密碼遺忘只能通過電子郵件信箱找回！請保持電子郵件信箱有效可接收郵件。</p>
                     <form class="row gy-3 needs-validation" id="passwordUpdateForm" novalidate onsubmit="return false;">
                            <div class="col-lg-7">
                               <label for="securityOldPasswordInput" class="form-label">旧密码</label>

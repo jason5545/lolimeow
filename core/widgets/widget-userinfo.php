@@ -126,7 +126,7 @@ class widget_userinfo extends WP_Widget {
 				<input type="checkbox" id="<?php echo $this->get_field_id('show_email'); ?>"
 					name="<?php echo $this->get_field_name('show_email'); ?>"
 					<?php checked($instance['show_email']); ?> />
-				<?php echo __('顯示郵箱圖標', 'boxmoe-com') ?>
+				<?php echo __('顯示電子郵件信箱圖標', 'boxmoe-com') ?>
 			</label>
 		</p>
 	<?php

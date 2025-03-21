@@ -8,12 +8,12 @@ document.addEventListener('DOMContentLoaded', function() {
             const submitBtn = this.querySelector('.submit-btn');
             const submitBtnIcon = submitBtn.querySelector('i');
             
-            // 更改按钮状态为提交中
+            // 更改按鈕狀態為提交中
             submitBtn.disabled = true;
             submitBtnIcon.className = 'fa fa-spinner fa-spin';
-            submitBtn.innerHTML = `${submitBtnIcon.outerHTML} 正在发表...`;
+            submitBtn.innerHTML = `${submitBtnIcon.outerHTML} 正在發表...`;
 
-            // 添加AJAX请求参数
+            // 新增AJAX請求參數
             formData.append('action', 'ajax_comment');
             formData.append('security', document.querySelector('#comment_nonce_field').value);
 
@@ -25,10 +25,10 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
-                    // 清空输入框
+                    // 清空輸入框
                     this.querySelector('textarea').value = '';
                     
-                    // 更新用户信息显示
+                    // 更新使用者資訊顯示
                     const userNameElement = document.querySelector('.user-info .user-name');
                     const userEmailElement = document.querySelector('.user-info .user-email');
                     if (userNameElement && !ajax_object .is_user_logged_in) {
@@ -38,20 +38,20 @@ document.addEventListener('DOMContentLoaded', function() {
                         userEmailElement.textContent = formData.get('email');
                     }
                     
-                    // 获取新评论容器
+                    // 取得新留言容器
                     const commentNew = document.querySelector('.comment-new');
                     const newContent = commentNew.querySelector('.new-content');
                     
-                    // 插入新评论
+                    // 插入新留言
                     const newComment = createCommentElement(data.data.comment);
                     newContent.insertAdjacentElement('afterbegin', newComment);
                     
-                    // 显示新评论容器并添加动画效果
+                    // 顯示新留言容器並新增動畫效果
                     commentNew.style.display = 'block';
                     void commentNew.offsetWidth;
                     commentNew.classList.add('show');
                     
-                    // 初始化新评论中的懒加载图片
+                    // 初始化新留言中的懶加載圖片
                     const lazyImages = newComment.querySelectorAll('img.lazy');
                     lazyImages.forEach(img => {
                         const imageObserver = new IntersectionObserver((entries, observer) => {
@@ -66,43 +66,43 @@ document.addEventListener('DOMContentLoaded', function() {
                         imageObserver.observe(img);
                     });
                     
-                    // 更新评论计数
+                    // 更新留言計數
                     updateCommentCount();
                     
-                    showMessage(data.data.message || '评论提交成功！', 'success');
+                    showMessage(data.data.message || '留言提交成功！', 'success');
                 } else {
-                    showMessage(data.data || '提交失败，请检查输入！', 'error');
+                    showMessage(data.data || '提交失敗，請檢查輸入！', 'error');
                 }
             })
             .catch(error => {
-                console.error('评论提交错误:', error);
-                showMessage('网络错误，请重试！', 'error');
+                console.error('留言提交錯誤:', error);
+                showMessage('網路錯誤，請重試！', 'error');
             })
             .finally(() => {
-                // 恢复按钮状态
+                // 恢復按鈕狀態
                 submitBtn.disabled = false;
                 submitBtnIcon.className = 'fa fa-paper-plane';
-                submitBtn.innerHTML = `${submitBtnIcon.outerHTML} 发表评论`;
+                submitBtn.innerHTML = `${submitBtnIcon.outerHTML} 發表留言`;
             });
         });
     }
 
-    // 创建评论元素
+    // 建立留言元素
     function createCommentElement(comment) {
-        // 使用临时div包裹处理空格问题
+        // 使用臨時div包裹處理空格問題
         const tempDiv = document.createElement('div');
         tempDiv.innerHTML = comment.trim();
         return tempDiv.firstElementChild;
     }
 
-    // 更新评论数量
+    // 更新留言數量
     function updateCommentCount() {
         const countElement = document.querySelector('.post-comments h2');
         const currentCount = parseInt(countElement.textContent.match(/\d+/)[0]);
         countElement.textContent = countElement.textContent.replace(/\d+/, currentCount + 1);
     }
 
-    // 回复按钮处理
+    // 回覆按鈕處理
     document.body.addEventListener('click', function(e) {
         if (e.target.closest('.comment-reply-link')) {
             e.preventDefault();
@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// 评论工具栏功能初始化
+// 留言工具列功能初始化
 function initCommentToolbar() {
     const commentTextarea = document.querySelector('#comment');
     const emojiBtn = document.querySelector('.emoji-btn');
@@ -127,7 +127,7 @@ function initCommentToolbar() {
     if(emojiBtn && emojiPanel) {
         emojiBtn.addEventListener('click', (e) => {
             e.stopPropagation();
-            // 添加元素存在性检查
+            // 新增元素存在性檢查
             const isVisible = emojiPanel && emojiPanel.style.display === 'block';
             if(emojiPanel) {
                 emojiPanel.style.display = isVisible ? 'none' : 'block';
@@ -178,14 +178,14 @@ function initCommentToolbar() {
                 });
             });
             
-            // 默认激活emoji标签
+            // 預設啟用emoji標籤
             if(tab.classList.contains('active')) {
                 tab.click();
             }
         });
     }
 
-    // 图片上传功能
+    // 圖片上傳功能
     if(uploadBtn && uploadInput) {
         uploadBtn.addEventListener('click', () => {
             uploadInput.click();
@@ -195,7 +195,7 @@ function initCommentToolbar() {
             const file = e.target.files[0];
             if(file) {
                 if(file.size > 2 * 1024 * 1024) { // 2MB限制
-                    showMessage('图片大小不能超过2MB', 'error');
+                    showMessage('圖片大小不能超過2MB', 'error');
                     return;
                 }
                 
@@ -203,20 +203,20 @@ function initCommentToolbar() {
                     const imgUrl = await uploadImage(file);
                     insertAtBoxmoe(commentTextarea, `![${file.name}](${imgUrl})`);
                 } catch(err) {
-                    showMessage('图片上传失败', 'error');
+                    showMessage('圖片上傳失敗', 'error');
                 }
             }
         });
     }
 
-    // pl代码高亮插入功能
+    // pl程式碼醒目提示插入功能
     if(codeBtn && codePanel) {
         const closeBtn = codePanel.querySelector('.close-btn');
         const insertBtn = codePanel.querySelector('.insert-code-btn');
         const codeInput = codePanel.querySelector('.code-input');
         const langSelect = codePanel.querySelector('.code-language');
 
-        // 初始化代码面板位置
+        // 初始化程式碼面板位置
         codePanel.style.display = 'none';
         
         codeBtn.addEventListener('click', (e) => {
@@ -235,7 +235,7 @@ function initCommentToolbar() {
         insertBtn.addEventListener('click', () => {
             const code = codeInput.value.trim();
             if(code) {
-                // 修改为WordPress兼容的pre+code标签格式
+                // 修改為WordPress相容的pre+code標籤格式
                 const codeBlock = `\n<pre><code class="language-">\n${code}\n</code></pre>\n`;
                 insertAtBoxmoe(commentTextarea, codeBlock);
                 codeInput.value = '';
@@ -243,7 +243,7 @@ function initCommentToolbar() {
             }
         });
 
-        // 回车键提交支持
+        // Enter鍵提交支援
         codeInput.addEventListener('keydown', (e) => {
             if(e.key === 'Enter' && (e.ctrlKey || e.metaKey)) {
                 insertBtn.click();
@@ -252,7 +252,7 @@ function initCommentToolbar() {
     }
 
     document.addEventListener('click', (e) => {
-        // 添加元素存在性检查
+        // 新增元素存在性檢查
         if(emojiPanel && emojiBtn) {
             if(!emojiPanel.contains(e.target) && !emojiBtn.contains(e.target)) {
                 emojiPanel.style.display = 'none';
@@ -265,7 +265,7 @@ function initCommentToolbar() {
         }
     });
 }
-// 评论回复初始化
+// 留言回覆初始化
 function initCommentReply() {
     const commentForm = document.getElementById('respond');
     const cancelReply = document.getElementById('cancel-comment-reply-link');
@@ -300,7 +300,7 @@ function initCommentReply() {
     }
 }
 
-// 评论消息初始化
+// 留言訊息初始化
 function showMessage(message, type = 'success') {
     const messageEl = document.querySelector('.comment-message');
     const contentEl = messageEl.querySelector('.message-content');
@@ -314,7 +314,7 @@ function showMessage(message, type = 'success') {
     }, 5000);
 }
 
-//编辑器辅助函数
+//編輯器輔助函數
 function insertAtBoxmoe(textarea, text) {
     const start = textarea.selectionStart;
     const end = textarea.selectionEnd;
@@ -325,29 +325,29 @@ function insertAtBoxmoe(textarea, text) {
     textarea.focus();
 }
 
-// 评论列表显示/隐藏功能初始化
+// 留言列表顯示/隱藏功能初始化
 function initCommentsToggle() {
     const toggle = document.querySelector('.comments-toggle');
     const commentsList = document.querySelector('.comments-list');
     
     if (!toggle || !commentsList) return;
     
-    // 从localStorage获取状态
+    // 從localStorage取得狀態
     const isOpen = localStorage.getItem('commentsListOpen') === 'true';
     
-    // 初始化状态
+    // 初始化狀態
     if (isOpen) {
         toggle.classList.add('active');
-        toggle.querySelector('span').textContent = '收起评论列表';
+        toggle.querySelector('span').textContent = '收起留言列表';
         commentsList.classList.add('show');
     }
     
     toggle.addEventListener('click', () => {
         const isActive = toggle.classList.toggle('active');
-        toggle.querySelector('span').textContent = isActive ? '收起评论列表' : '檢視评论列表';
+        toggle.querySelector('span').textContent = isActive ? '收起留言列表' : '檢視留言列表';
         commentsList.classList.toggle('show');
         
-        // 保存状态到localStorage
+        // 儲存狀態到localStorage
         localStorage.setItem('commentsListOpen', isActive);
     });
 }

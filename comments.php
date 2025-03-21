@@ -132,14 +132,14 @@ if(!isset($user_ID)) {
                                         ?>
                                         <div class="user-info">
                                             <span class="user-name"><?php echo !empty($comment_author) ? esc_attr($comment_author) : '訪客'; ?></span>
-                                            <span class="user-email"><?php echo !empty($comment_author_email) ? esc_attr($comment_author_email) : '未填寫郵箱'; ?></span>
+                                            <span class="user-email"><?php echo !empty($comment_author_email) ? esc_attr($comment_author_email) : '未填寫電子郵件信箱'; ?></span>
                                         </div>
                                         <div class="user-start">
                                            <?php if (!empty($comment_author)) {
                                             echo '[當前狀態：未登錄，訪客]';
                                            }else{
                                             if (!get_boxmoe('boxmoe_comment_login_switch')) :
-                                            echo '[填寫昵稱郵箱後可以留言]';
+                                            echo '[填寫昵稱電子郵件信箱後可以留言]';
                                             else:
                                             echo '[登錄後可以留言]';
                                             endif;
@@ -186,7 +186,7 @@ if(!isset($user_ID)) {
                                         <span class="input-group-text" id="email"><i class="fa fa-envelope"></i></span>
                                         <input id="email" class="form-control" name="email" type="email" tabindex="2" 
                                             value="<?php echo esc_attr(get_comment_author_info('comment_author_email')); ?>" 
-                                            placeholder="郵箱 *">
+                                            placeholder="電子郵件信箱 *">
                                     </div>
                                     <div class="input-group">
                                         <span class="input-group-text" id="url"><i class="fa fa-link"></i></span>

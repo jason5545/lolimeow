@@ -32,22 +32,22 @@ if (is_user_logged_in()){
                   <div class="text-center mb-7">
                      <a href="<?php echo home_url(); ?>">
                      <?php boxmoe_logo(); ?></a>
-                     <h1 class="mb-1">重置密码</h1>
-                     <p class="mb-0">请输入您的邮箱，我们将发送重置密码的链接。</p>
+                     <h1 class="mb-1">重設密碼</h1>
+                     <p class="mb-0">請輸入您的電子郵件信箱，我們將發送重設密碼的連結。</p>
                   </div>
                   <form class="needs-validation mb-5" id="resetPasswordForm" novalidate>
                      <?php wp_nonce_field('reset_password_action', 'reset_password_nonce'); ?>
                      <div class="mb-3">
                         <label for="resetEmailInput" class="form-label">
-                           邮箱
+                           電子郵件信箱
                            <span class="text-danger">*</span>
                         </label>
-                        <input type="email" class="form-control" id="resetEmailInput" name="user_email" placeholder="请输入您的邮箱" required>
-                        <div class="invalid-feedback">请输入有效的邮箱地址。</div>
+                        <input type="email" class="form-control" id="resetEmailInput" name="user_email" placeholder="請輸入您的電子郵件信箱" required>
+                        <div class="invalid-feedback">請輸入有效的電子郵件信箱地址。</div>
                      </div>
                      <div id="signup-message"></div>
                      <div class="d-grid">
-                        <button class="btn btn-primary" type="submit" id="resetSubmitBtn">发送重置链接</button>
+                        <button class="btn btn-primary" type="submit" id="resetSubmitBtn">發送重設連結</button>
                      </div>
                   </form>
                   <div class="text-center">
@@ -143,14 +143,14 @@ if (is_user_logged_in()){
                 form.reset();
             } else {
                 submitBtn.disabled = false;
-                submitBtn.textContent = '发送重置链接';
+                submitBtn.textContent = '發送重設連結';
                 messageDiv.innerHTML = '<div class="alert alert-danger">' + response.data.message + '</div>';
             }
         })
         .catch(() => {
             submitBtn.disabled = false;
-            submitBtn.textContent = '发送重置链接';
-            messageDiv.innerHTML = '<div class="alert alert-danger">发送请求失败，请稍后重试</div>';
+            submitBtn.textContent = '發送重設連結';
+            messageDiv.innerHTML = '<div class="alert alert-danger">發送請求失敗，請稍後重試</div>';
         });
     });
 });

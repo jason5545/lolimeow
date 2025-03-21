@@ -91,7 +91,7 @@ if(!defined('ABSPATH')){echo'Look your sister';exit;}
                            <div class="ms-4">
                             <form id="avatarForm">
                                 <input type="file" id="avatarInput" accept="image/*" style="display: none;">
-                                <button id="uploadAvatarButton" class="btn btn-outline-primary btn-sm mb-0 ms-2">上传头像</button>
+                                <button id="uploadAvatarButton" class="btn btn-outline-primary btn-sm mb-0 ms-2">上傳頭像</button>
                                 <small class="ms-3">支持 *.jpeg, *.jpg, *.png, *.gif 最大1MB</small>
                             </form>
                            </div>                          
@@ -106,7 +106,7 @@ if(!defined('ABSPATH')){echo'Look your sister';exit;}
                               <input type="text" disabled class="form-control" id="user_login" value="<?php echo $current_user->user_login; ?>" >
                            </div>
                            <div class="col-lg-6 col-md-12">
-                              <label for="user_email" class="form-label">邮箱<small class="text-muted">（不可修改）</small></label>
+                              <label for="user_email" class="form-label">電子郵件信箱<small class="text-muted">（不可修改）</small></label>
                               <input type="text" disabled class="form-control" id="user_email" value="<?php echo $current_user->user_email; ?>" >
                            </div>
                            <div class="col-lg-6">

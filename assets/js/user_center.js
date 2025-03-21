@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', function() {
             uploadButton.disabled = true;
             uploadButton.innerHTML = `
                 <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                上传中...
+                上傳中...
             `;
 
             const formData = new FormData();
@@ -171,7 +171,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     showToast(data.data.message, false);
                 }
             } catch (error) {
-                showToast('上传失败，请重试', false);
+                showToast('上傳失敗，請重試', false);
             } finally {
                 uploadButton.disabled = false;
                 uploadButton.innerHTML = originalButtonText;

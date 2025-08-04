@@ -60,7 +60,7 @@ function boxmoe_new_user_register($user_id){
                                 '. $user->user_registered . '<br>
                             </p>
                             <p style="font-size:14px;color:#999;margin-top:30px;border-top:1px solid #eee;padding-top:20px;">
-                            此郵件由<a href="' . get_option('home') . '" rel="noopener" target="_blank">' . get_option('blogname') . '</a>系統自動發送，請勿直接回复！</p>
+                            此郵件由<a href="' . get_option('home') . '" rel="noopener" target="_blank">' . get_option('blogname') . '</a>系統自動發送，請勿直接回覆！</p>
                         </div>
                     </div>
                 </td>
@@ -73,11 +73,11 @@ function boxmoe_new_user_register($user_id){
     boxmoe_smtp_mail_template($admin_email, $subject, $message);
 }
 
-//評論消息通知
+//迴響消息通知
 function boxmoe_comment_notification($comment_id){
     $comment = get_comment($comment_id);
     $post = get_post($comment->comment_post_ID);
-    $subject = '[' . get_option('blogname') . '] 有新的評論消息！';
+    $subject = '[' . get_option('blogname') . '] 有新的迴響消息！';
     $message = '    <table style="width:70%;margin: 0 auto;height:100% ">
         <tbody>
             <tr>
@@ -87,14 +87,14 @@ function boxmoe_comment_notification($comment_id){
                             <p style="font-size:15px;word-break:break-all;padding: 23px 32px;margin:0;background-color: hsla(0,0%,100%,.4);border-radius: 10px 10px 0 0;">
                                 <a style="text-decoration:none;color: #ffffff;" href="' . get_option('home') . '" rel="noopener" target="_blank"> 
 								[' . get_option('blogname') . '] </a> 
-                                有新的評論消息！
+                                有新的迴響消息！
                             </p>
                         </div>
                         <div style="margin:40px 30px">
-                            <p>' . trim($comment->comment_author) . ' 給您的文章回复如下：</p>
+                            <p>' . trim($comment->comment_author) . ' 給您的文章回覆如下：</p>
                             <p style="background: #fafafa repeating-linear-gradient(-45deg,#fff,#fff 1.125rem,transparent 1.125rem,transparent 2.25rem);box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);margin:20px 0px;padding:15px;border-radius:5px;font-size:14px;color:#555555;">'. trim($comment->comment_content) . '</p>
-                            <p>您可以點擊 <a style="text-decoration:none; color:#12addb" href="' . htmlspecialchars(get_comment_link($comment_id)) . '" rel="noopener" target="_blank">檢視回复的完整內容 </a>，
-                            此郵件由<a href="' . get_option('home') . '" rel="noopener" target="_blank">' . get_option('blogname') . '</a>系統自動發送，請勿直接回复！</p>
+                            <p>您可以點擊 <a style="text-decoration:none; color:#12addb" href="' . htmlspecialchars(get_comment_link($comment_id)) . '" rel="noopener" target="_blank">檢視回覆的完整內容 </a>，
+                            此郵件由<a href="' . get_option('home') . '" rel="noopener" target="_blank">' . get_option('blogname') . '</a>系統自動發送，請勿直接回覆！</p>
                         </div>
                     </div>
                 </td>
@@ -108,14 +108,14 @@ if(get_boxmoe('boxmoe_new_comment_notice_switch')){
     add_action('comment_post', 'boxmoe_comment_notification');
 }
 
-//評論回复消息通知
+//迴響回覆消息通知
 function boxmoe_comment_reply_notification($comment_id) {
     $comment = get_comment($comment_id);   
     // 基礎檢查
     if (!$comment || !$comment->comment_parent) {
         return;
     }  
-    // 获取父評論
+    // 获取父迴響
     $parent_comment = get_comment($comment->comment_parent);
     if (!$parent_comment || !is_email($parent_comment->comment_author_email)) {
         return;
@@ -125,11 +125,11 @@ function boxmoe_comment_reply_notification($comment_id) {
     if (!$post) {
         return;
     }   
-    // 檢查評論狀態
+    // 檢查迴響狀態
     if ($comment->comment_approved !== '1') {
         return;
     }   
-    $subject = '[' . get_option('blogname') . '] 有新的評論回复消息！';
+    $subject = '[' . get_option('blogname') . '] 有新的迴響回覆消息！';
     $message = '    <table style="width:70%;margin: 0 auto;height:100% ">
         <tbody>
             <tr>
@@ -138,17 +138,17 @@ function boxmoe_comment_reply_notification($comment_id) {
                         <div style="width:100%;background:#49BDAD;color:#ffffff;border-radius: 10px 10px 0 0;background-image: -moz-linear-gradient(0deg, rgb(67, 198, 184), rgb(255, 209, 244));background-image: -webkit-linear-gradient(0deg, rgb(67, 198, 184), rgb(255, 209, 244));height: 66px;">
                             <p style="font-size:15px;word-break:break-all;padding: 23px 32px;margin:0;background-color: hsla(0,0%,100%,.4);border-radius: 10px 10px 0 0;">
                                 <a style="text-decoration:none;color: #ffffff;" href="' . get_option('home') . '" rel="noopener" target="_blank"> [' . get_option('blogname') . '] </a> 
-                                有新的評論回复消息！
+                                有新的迴響回覆消息！
                             </p>
                         </div>
                         <div style="margin:40px 30px">
-                            <p>' . trim($comment->comment_author) . ' 給您的回复如下：</p>
+                            <p>' . trim($comment->comment_author) . ' 給您的回覆如下：</p>
                             <p style="background: #fafafa repeating-linear-gradient(-45deg,#fff,#fff 1.125rem,transparent 1.125rem,transparent 2.25rem);box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);margin:20px 0px;padding:15px;border-radius:5px;font-size:14px;color:#555555;">'. trim($comment->comment_content) . '</p>
                             <p>您在《' . get_the_title($comment->comment_post_ID) . '》的原始留言：</p>
                             <p style="background: #fafafa repeating-linear-gradient(-45deg,#fff,#fff 1.125rem,transparent 1.125rem,transparent 2.25rem);box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);margin:20px 0px;padding:15px;border-radius:5px;font-size:14px;color:#555555;">'. trim($parent_comment->comment_content) . '</p>
-                            <p>您可以點擊 <a style="text-decoration:none; color:#12addb" href="' . htmlspecialchars(get_comment_link($comment_id)) . '" rel="noopener" target="_blank">檢視回复的完整內容 </a>，此郵件由<a href="' . get_option('home') . '" rel="noopener" target="_blank">' . get_option('blogname') . '</a>系統自動發送，請勿直接回复！</p>
+                            <p>您可以點擊 <a style="text-decoration:none; color:#12addb" href="' . htmlspecialchars(get_comment_link($comment_id)) . '" rel="noopener" target="_blank">檢視回覆的完整內容 </a>，此郵件由<a href="' . get_option('home') . '" rel="noopener" target="_blank">' . get_option('blogname') . '</a>系統自動發送，請勿直接回覆！</p>
                             <p style="font-size:14px;color:#999;margin-top:30px;border-top:1px solid #eee;padding-top:20px;">
-                            此郵件由<a href="' . get_option('home') . '" rel="noopener" target="_blank">' . get_option('blogname') . '</a>系統自動發送，請勿直接回复！</p>
+                            此郵件由<a href="' . get_option('home') . '" rel="noopener" target="_blank">' . get_option('blogname') . '</a>系統自動發送，請勿直接回覆！</p>
                         </div>
                     </div>
                 </td>
@@ -232,7 +232,7 @@ function boxmoe_new_user_register_email($user_id){
                             <p>您的會員電子郵件信箱為：' . $user->user_email . '</p>
                             <p>請妥善保管您的會員帳號和密碼，如忘記密碼請在線找回。</p>
                             <p style="font-size:14px;color:#999;margin-top:30px;border-top:1px solid #eee;padding-top:20px;">
-                            此郵件由<a href="' . get_option('home') . '" rel="noopener" target="_blank">' . get_option('blogname') . '</a>系統自動發送，請勿直接回复！</p>
+                            此郵件由<a href="' . get_option('home') . '" rel="noopener" target="_blank">' . get_option('blogname') . '</a>系統自動發送，請勿直接回覆！</p>
                         </div>
                     </div>
                 </td>
@@ -265,7 +265,7 @@ function boxmoe_verification_code_register_email($email, $verification_code = ''
                             <p>您的註冊驗證碼是：' . $verification_code . '</p>
                             <p>有效期5分鐘。請勿將驗證碼泄露給他人。</p>
                             <p style="font-size:14px;color:#999;margin-top:30px;border-top:1px solid #eee;padding-top:20px;">
-                            此郵件由<a href="' . get_option('home') . '" rel="noopener" target="_blank">' . get_option('blogname') . '</a>系統自動發送，請勿直接回复！</p>
+                            此郵件由<a href="' . get_option('home') . '" rel="noopener" target="_blank">' . get_option('blogname') . '</a>系統自動發送，請勿直接回覆！</p>
                         </div>
                     </div>  
                 </td>
@@ -295,12 +295,12 @@ function boxmoe_robot_post_template($remote_server, $post_string) {
     return $data;  
 } 
 
-//評論機器人通知
+//迴響機器人通知
 function boxmoe_robot_msg_comment($comment_id){
     $comment = get_comment($comment_id);
     $siteurl = get_bloginfo('url');
-    $text = '文章《' . get_the_title($comment->comment_post_ID) . '》有新的評論！';
-    $message = $text . "\n" . "作者: $comment->comment_author \n電子郵件信箱: $comment->comment_author_email \n評論: $comment->comment_content \n 點擊檢視：$siteurl/?p=$comment->comment_post_ID#comments";
+    $text = '文章《' . get_the_title($comment->comment_post_ID) . '》有新的迴響！';
+    $message = $text . "\n" . "作者: $comment->comment_author \n電子郵件信箱: $comment->comment_author_email \n迴響: $comment->comment_content \n 點擊檢視：$siteurl/?p=$comment->comment_post_ID#comments";
 		if(get_boxmoe('boxmoe_robot_channel') == 'qq_group' ){			
 			$msgid	=	get_boxmoe('boxmoe_robot_msg_user');
             $apiurl	=	get_boxmoe('boxmoe_robot_api_url').'/send_private_msg?group_id='.$msgid;

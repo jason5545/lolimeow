@@ -69,11 +69,11 @@ if(!defined('ABSPATH')){echo'Look your sister';exit;}
                               <div class="card border-0 mb-4 mb-lg-0 bg-light-subtle">
                                  <div class="card-body py-lg-3 px-lg-4">
                                     <div class="mb-5">
-                                       <h6>累計評論</h6>
+                                       <h6>累計迴響</h6>
                                        <h4><?php global $user_ID;echo get_comments('count=true&user_id='.$user_ID);?>條</h4>
                                     </div>
                                     <a href="?items=comment" class="icon-link icon-link-hover text-primary">
-                                       檢視評論記錄
+                                       檢視迴響記錄
                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
                                           <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z">
                                           </path>

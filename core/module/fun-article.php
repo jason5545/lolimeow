@@ -104,7 +104,7 @@ return 200;
 }
 add_filter( 'excerpt_length', 'custom_excerpt_length');
 
-//文章、評論內容縮短--------------------------boxmoe.com--------------------------
+//文章、迴響內容縮短--------------------------boxmoe.com--------------------------
 function _get_excerpt($limit = 60, $after = '...') { 
 	$excerpt = get_the_excerpt();
 	if (mb_strlen($excerpt) > $limit) {

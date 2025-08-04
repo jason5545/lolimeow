@@ -309,7 +309,7 @@ echo '
 if (current_user_can('edit_posts') && current_user_can('edit_pages')) {
 	add_action('media_buttons', 'boxmoe_select', 11);
 }
-//ctlr+enter回复
+//ctlr+enter回覆
 function boxmoe_button() {
 echo '<script type="text/javascript">
 	jQuery(document).ready(function(){

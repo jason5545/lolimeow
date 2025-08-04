@@ -50,7 +50,7 @@ if(!defined('ABSPATH')){echo'Look your sister';exit;}
                         <div class="single-info-right">
                           <div class="single-comnum">
                             <a href="#comments-container" class="tag-cloud">
-                              <i class="fa fa-comments-o"></i><?php echo get_comments_number(); ?> 評論</a>
+                              <i class="fa fa-comments-o"></i><?php echo get_comments_number(); ?> 迴響</a>
                           </div>
                         </div>
                       </div>

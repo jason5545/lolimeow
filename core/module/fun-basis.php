@@ -282,7 +282,7 @@ if(get_boxmoe('boxmoe_blog_layout') == 'two'){
 
 
 
-// 懒加载图片--------------------------boxmoe.com--------------------------
+// 延遲載入圖片--------------------------boxmoe.com--------------------------
 function boxmoe_lazy_load_images(){
     if(get_boxmoe('boxmoe_lazy_load_images')){
         $src = get_boxmoe('boxmoe_lazy_load_images');
@@ -293,7 +293,7 @@ function boxmoe_lazy_load_images(){
 }
 
 
-// 边框设置--------------------------boxmoe.com--------------------------
+// 邊框設置--------------------------boxmoe.com--------------------------
 function boxmoe_border_setting(){
     $border = get_boxmoe('boxmoe_blog_border');
     if($border){
@@ -313,7 +313,7 @@ function boxmoe_border_setting(){
 
 
 
-// 搜尋结果排除所有页面--------------------------boxmoe.com--------------------------
+// 搜尋結果排除所有頁面--------------------------boxmoe.com--------------------------
 function boxmoe_search_exclude_pages($query) {
     if ($query->is_search) {
         $query->set('post_type', 'post');

@@ -43,7 +43,7 @@ $title= '安全中心 | 加载中...';
 } else {
 $err = "1";
 $url = 'https://'.$_SERVER['HTTP_HOST'];
-$title='参数错误，中止跳转！正在返回首页...';
+$title='參數錯誤，中止跳轉！正在返回首頁...';
 }
 }
 } else {

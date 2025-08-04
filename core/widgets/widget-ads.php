@@ -3,13 +3,13 @@
  * @link https://www.boxmoe.com
  * @package lolimeow
  */
-//=======安全设置，防止直接访问主题文件=======
+//=======安全設置，防止直接存取主題檔案=======
 if (!defined('ABSPATH')) {echo'Look your sister';exit;}
 //=========================================
 class widget_ads extends WP_Widget {
 
 	function __construct(){
-		parent::__construct( 'widget_ads', 'Boxmoe_广告侧栏', array( 'classname' => 'widget_ads' ) );
+		parent::__construct( 'widget_ads', 'Boxmoe_廣告側欄', array( 'classname' => 'widget_ads' ) );
 	}
 	function widget( $args, $instance ) {
 		extract( $args );

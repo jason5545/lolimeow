@@ -32,7 +32,7 @@ require_once  get_stylesheet_directory() . '/core/module/fun-smtp.php';
 require_once  get_stylesheet_directory() . '/core/module/fun-msg.php';
 require_once  get_stylesheet_directory() . '/core/module/fun-no-category.php';
 require_once  get_stylesheet_directory() . '/core/module/fun-shortcode.php';
-//boxmoe.com===自定义代码
+//boxmoe.com===自定義程式碼
 
 // 添加網站地圖生成功能
 if (!function_exists('boxmoe_generate_sitemap')) {

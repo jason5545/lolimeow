@@ -1,8 +1,8 @@
 /*
 Theme Name:LoliMeow
 Theme URI:https://www.boxmoe.com
-Description:LoliMeow（洛丽喵）是盒子萌的一款主题.
-Author:专收爆米花
+Description:LoliMeow（洛麗喵）是盒子萌的一款主題.
+Author:專收爆米花
 Author URI:https://www.boxmoe.com
 */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap');
@@ -929,7 +929,7 @@ footer .logo {height:35px;}
 .shui-c{position:absolute;top:18px;left:-2px;width:10px;height:35px;background:orange;border-radius:0 0 0 5px}
 .deng:before{position:absolute;top:-7px;left:29px;height:12px;width:60px;content:" ";display:block;z-index:999;border-radius:5px 5px 0 0;border:solid 1px #dc8f03;background:orange;background:linear-gradient(to right,#dc8f03,orange,#dc8f03,orange,#dc8f03)}
 .deng:after{position:absolute;bottom:-7px;left:10px;height:12px;width:60px;content:" ";display:block;margin-left:20px;border-radius:0 0 5px 5px;border:solid 1px #dc8f03;background:orange;background:linear-gradient(to right,#dc8f03,orange,#dc8f03,orange,#dc8f03)}
-.deng-t{font-family:'Noto Sans TC',黑体,Arial,Lucida Grande,Tahoma,sans-serif;font-size:3.2rem;color:#dc8f03;font-weight:700;line-height:85px;text-align:center}
+.deng-t{font-family:'Noto Sans TC',黑體,Arial,Lucida Grande,Tahoma,sans-serif;font-size:3.2rem;color:#dc8f03;font-weight:700;line-height:85px;text-align:center}
 .night .deng-box,.night .deng-box1,.night .deng-t{background:0 0!important}
 @-moz-keyframes swing{0%{-moz-transform:rotate(-10deg)}
 50%{-moz-transform:rotate(10deg)}

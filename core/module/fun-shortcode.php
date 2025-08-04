@@ -185,13 +185,13 @@ function password_protected_post($atts, $content=null){
     extract(shortcode_atts(array('key'=>null), $atts));
     if(isset($_POST['password_key']) && $_POST['password_key']==$key){
         return '
-		    <div class="alert alert-default" role="alert"><strong>温馨提示！</strong>以下是密码保护的内容！</div> 
+		    <div class="alert alert-default" role="alert"><strong>溫馨提示！</strong>以下是密碼保護的內容！</div>
 			<div class="password_protected_post_content">'.$content.'</div>
 		';
     }elseif(isset($_POST['password_key']) && $_POST['password_key']!=$key){
         return '
 			<script>
-				alert("密码错误，请仔细核对密码后重试！！！");
+				alert("密碼錯誤，請仔細核對密碼後重試！！！");
 				window.location.href="'.get_permalink().'";
 			</script>
 		';

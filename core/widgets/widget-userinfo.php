@@ -24,8 +24,8 @@ class widget_userinfo extends WP_Widget {
 	public function widget( $args, $instance ) {
 		extract($args);
 		$title = apply_filters('widget_name', $instance['title']);
-		$nickname = isset($instance['nickname']) ? $instance['nickname'] : '昵称在这里';
-		$bio = isset($instance['bio']) ? $instance['bio'] : '个人简介文字';
+		$nickname = isset($instance['nickname']) ? $instance['nickname'] : '暱稱在這裡';
+		$bio = isset($instance['bio']) ? $instance['bio'] : '個人簡介文字';
 		$avatarid = isset($instance['avatarid']) ? $instance['avatarid'] : 1;
 		$avatar_url = boxmoe_get_avatar_url($avatarid, 100);
 		echo $before_widget;

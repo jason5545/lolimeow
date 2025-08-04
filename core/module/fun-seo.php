@@ -170,7 +170,7 @@ $postmeta_keywords_description = array(
         "name" => "keywords",
 
         "std" => "",
-        "title" => __('关键字', 'boxmoe').'：'
+        "title" => __('關鍵字', 'boxmoe').'：'
     ),
     array(
         "name" => "description",

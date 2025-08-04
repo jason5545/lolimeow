@@ -594,8 +594,8 @@ function initCodeCopy() {
         const copySpan = document.createElement('span');
         copySpan.className = 'single-copy copy';
         copySpan.setAttribute('data-clipboard-target', `#copy${index}`);
-        copySpan.setAttribute('title', '点击复制本段代码');
-        copySpan.innerHTML = '<i class="fa fa-files-o"></i> 复制代码';
+        copySpan.setAttribute('title', '點擊複製本段程式碼');
+        copySpan.innerHTML = '<i class="fa fa-files-o"></i> 複製程式碼';
         btnCopy.appendChild(copySpan);
         pre.insertBefore(btnCopy, pre.firstChild);
         const codeList = pre.querySelector('ol');
@@ -607,15 +607,15 @@ function initCodeCopy() {
     clipboard.on('success', function(e) {
         e.clearSelection();
         const trigger = e.trigger;
-        trigger.innerHTML = '<span style="color:#32cd32"><i class="fa fa-check-square-o" aria-hidden="true"></i> 复制成功</span>';     
+        trigger.innerHTML = '<span style="color:#32cd32"><i class="fa fa-check-square-o" aria-hidden="true"></i> 複製成功</span>';
         setTimeout(() => {
-            trigger.innerHTML = '<i class="fa fa-files-o"></i> 复制代码';
+            trigger.innerHTML = '<i class="fa fa-files-o"></i> 複製程式碼';
         }, 3000);
     });
     clipboard.on('error', function(e) {
         console.error('Action:', e.action);
         console.error('Trigger:', e.trigger);
-        alert("复制失败，请手动复制");
+        alert("複製失敗，請手動複製");
     });
 }
 

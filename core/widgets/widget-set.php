@@ -3,7 +3,7 @@
  * @link https://www.boxmoe.com
  * @package lolimeow
  */
-//=======安全设置，防止直接访问主题文件=======
+//=======安全設置，防止直接存取主題檔案=======
 if (!defined('ABSPATH')) {echo'Look your sister';exit;}
 //=========================================
 add_action('widgets_init','unregister_d_widget');

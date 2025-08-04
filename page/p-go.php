@@ -32,20 +32,20 @@ $go_url = base64_decode($go_url);
 preg_match('/^(http|https|thunder|qqdl|ed2k|Flashget|qbrowser):\/\//i',$go_url,$matches);
 if($matches){
 $url=$go_url;
-$title= '页面加载中,请稍候...';
+$title= '頁面載入中,請稍候...';
 } else {
 preg_match('/\./i',$go_url,$matche);
 if($matche){
 $url='https://'.$go_url;
-$title= '页面加载中,请稍候...';
+$title= '頁面載入中,請稍候...';
 } else {
 $url = 'https://'.$_SERVER['HTTP_HOST'];
-$title='参数错误，中止跳转！正在返回首页...';
+$title='參數錯誤，中止跳轉！正在返回首頁...';
 echo "<script>setTimeout(function(){window.opener=null;window.close();}, 3000);</script>";
 }
 }
 } else {
-$title ='参数缺失，中止跳转！正在返回首页...';
+$title ='參數缺失，中止跳轉！正在返回首頁...';
 $url = 'https://'.$_SERVER['HTTP_HOST'];
 echo "<script>setTimeout(function(){window.opener=null;window.close();}, 3000);</script>";
 }
@@ -73,7 +73,7 @@ echo "<script>setTimeout(function(){window.opener=null;window.close();}, 3000);<
             <div></div>
             <div></div>
             <div></div>
-            <span class="loader-text">页面加载中，请稍候...</span>
+            <span class="loader-text">頁面載入中，請稍候...</span>
         </div>
     </div>
 </body>

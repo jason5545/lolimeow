@@ -63,7 +63,7 @@ function handle_user_login() {
     $formData = json_decode(stripslashes($_POST['formData']), true);
     if (!isset($formData['login_nonce']) || !wp_verify_nonce($formData['login_nonce'], 'user_login')) {
         wp_send_json_error(array(
-            'message' => '安全验证失败，请刷新页面重试'
+            'message' => '安全驗證失敗，請重新整理頁面重試'
         ));
         exit;
     }  
@@ -102,16 +102,16 @@ function handle_user_login() {
                 $error_message = '使用者不存在，如果不確定可以用電子郵件信箱登入';
                 break;
             case 'incorrect_password':
-                $error_message = '密码错误';
+                $error_message = '密碼錯誤';
                 break;
             case 'empty_username':
-                $error_message = '请输入用户名';
+                $error_message = '請輸入使用者名稱';
                 break;
             case 'empty_password':
-                $error_message = '请输入密码';
+                $error_message = '請輸入密碼';
                 break;
             default:
-                $error_message = '登录失败，请检查用户名和密码';
+                $error_message = '登入失敗，請檢查使用者名稱和密碼';
         }
         
         wp_send_json_error(array(
@@ -121,7 +121,7 @@ function handle_user_login() {
     } 
     
     wp_send_json_success(array(
-        'message' => '登录成功'
+        'message' => '登入成功'
     ));
     exit;
 }
@@ -141,13 +141,13 @@ function handle_user_signup() {
     
     $stored_code = get_transient('verification_code_' . $formData['email']);
     if (!$stored_code || $stored_code !== $formData['verificationcode']) {
-        wp_send_json_error(array('message' => '验证码错误或已过期'));
+        wp_send_json_error(array('message' => '驗證碼錯誤或已過期'));
         exit;
     }  
 
     if (!isset($formData['signup_nonce']) || !wp_verify_nonce($formData['signup_nonce'], 'user_signup')) {
         wp_send_json_error(array(
-            'message' => '安全验证失败，请刷新页面重试'
+            'message' => '安全驗證失敗，請重新整理頁面重試'
         ));
         exit;
     }   
@@ -291,7 +291,7 @@ add_action('wp_ajax_reset_password_action', 'handle_reset_password_request');
 
 function handle_reset_password_request() {
     if (!isset($_POST['nonce']) || !wp_verify_nonce($_POST['nonce'], 'reset_password_action')) {
-        wp_send_json_error(array('message' => '安全验证失败，请刷新页面重试'));
+        wp_send_json_error(array('message' => '安全驗證失敗，請重新整理頁面重試'));
         exit;
     }
 

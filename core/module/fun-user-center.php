@@ -184,14 +184,14 @@ function boxmoe_form_money_card() {
         } elseif ($result == '0') {
             wp_send_json_error(array('message' => '儲值卡已被使用'));
         } elseif ($result == '2') {
-            wp_send_json_error(array('message' => '儲值卡密错误'));
+            wp_send_json_error(array('message' => '儲值卡密錯誤'));
         } elseif ($result == '1') {
             wp_send_json_success(array('message' => '儲值成功'));
         } else {
-            wp_send_json_error(array('message' => '系统超时，请稍后重试'));
+            wp_send_json_error(array('message' => '系統逾時，請稍後重試'));
         }
     } else {
-        wp_send_json_error(array('message' => '参数缺失或无效'));
+        wp_send_json_error(array('message' => '參數缺失或無效'));
     }
     
     wp_die(); // 结束 AJAX 请求
@@ -392,26 +392,26 @@ function handle_vip_upgrade() {
 
         // 处理升级结果
         if($price <= 0) {
-            wp_send_json_error(array('message' => '价格有误'));
+            wp_send_json_error(array('message' => '價格有誤'));
         } elseif($okMoney < $price) {
-            wp_send_json_error(array('message' => '余额不足'));
+            wp_send_json_error(array('message' => '餘額不足'));
         } elseif($okMoney >= $price) {
             if(erphpSetUserMoneyXiaoFei($price)) {
                 if(userPayMemberSetData($userType)) {
                     addVipLog($price, $userType);
                     $EPD = new EPD();
                     $EPD->doAff($price, $current_user->ID);
-                    wp_send_json_success(array('message' => '升级成功'));
+                    wp_send_json_success(array('message' => '升級成功'));
                 } else {
-                    wp_send_json_error(array('message' => '系统超时，请稍后重试'));
+                    wp_send_json_error(array('message' => '系統逾時，請稍後重試'));
                 }
             } else {
-                wp_send_json_error(array('message' => '系统超时，请稍后重试'));
+                wp_send_json_error(array('message' => '系統逾時，請稍後重試'));
             }
         } else {
-            wp_send_json_error(array('message' => '系统超时，请稍后重试'));
+            wp_send_json_error(array('message' => '系統逾時，請稍後重試'));
         }
     } else {
-        wp_send_json_error(array('message' => 'VIP类型错误'));
+        wp_send_json_error(array('message' => 'VIP類型錯誤'));
     }
 }

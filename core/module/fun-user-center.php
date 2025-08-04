@@ -3,25 +3,25 @@
  * @link https://www.boxmoe.com
  * @package lolimeow
  */
-//boxmoe.com===安全设置=防止直接访问主题文件
+//boxmoe.com===安全設置=防止直接存取主題檔案
 if(!defined('ABSPATH')){echo'Look your sister';exit;}
 
-// 头像上传处理
+// 頭像上傳處理
 add_action('wp_ajax_upload_avatar', 'boxmoe_upload_avatar');
 
 function boxmoe_upload_avatar() {
     if (!is_user_logged_in()) {
-        wp_send_json_error(['message' => '请先登录']);
+        wp_send_json_error(['message' => '請先登入']);
         return;
     }
     $nonce = $_POST['nonce'];
     if (!wp_verify_nonce($nonce, 'boxmoe_ajax_nonce')) {
-        wp_send_json_error(['message' => '非法请求']);
+        wp_send_json_error(['message' => '非法請求']);
         return;
     }
 
     if (!isset($_FILES['avatar']) || $_FILES['avatar']['error'] !== UPLOAD_ERR_OK) {
-        wp_send_json_error(['message' => '文件上传失败']);
+        wp_send_json_error(['message' => '檔案上傳失敗']);
         return;
     }
 
@@ -59,15 +59,15 @@ function boxmoe_upload_avatar() {
         update_user_meta($user_id, 'user_avatar', $avatar_url);
 
         wp_send_json_success([
-            'message' => '头像上传成功',
+            'message' => '頭像上傳成功',
             'avatar_url' => $avatar_url
         ]);
     } else {
-        wp_send_json_error(['message' => '文件上传失败，请重试']);
+        wp_send_json_error(['message' => '檔案上傳失敗，請重試']);
     }
 }
 
-// 用户信息更新处理
+// 使用者資訊更新處理
 add_action('wp_ajax_update_user_profile', 'boxmoe_update_user_profile');
 
 function boxmoe_update_user_profile() {

@@ -1,10 +1,10 @@
 <?php
 /**
- * Template Name: 单页-默认
+ * Template Name: 單頁-預設
  * @link https://www.boxmoe.com
  * @package lolimeow
  */
-//boxmoe.com===安全设置=防止直接访问主题文件
+//boxmoe.com===安全設置=防止直接存取主題檔案
 if(!defined('ABSPATH')){echo'Look your sister';exit;}
 get_header(); 
 get_template_part('page/template/blog-page');

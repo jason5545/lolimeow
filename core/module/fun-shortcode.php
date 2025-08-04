@@ -200,15 +200,15 @@ function password_protected_post($atts, $content=null){
         return '
 
 		    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-		    <strong>注意！</strong>以下部分内容需要输入密码后才能檢視！
+		    <strong>注意！</strong>以下部分內容需要輸入密碼後才能檢視！
 
 		    </div>
 		    <div class="row justify-content-center align-items-center">
-            <div class="col-md-6">		
+            <div class="col-md-6">
 			<form class="mt20" action="'.get_permalink().'" method="post">
 			<div class="input-group mb-3">
-			<input type="password" id="password_key" name="password_key" class="form-control" placeholder="请输入密码檢視隐藏内容" aria-label="请输入密码檢視隐藏内容" aria-describedby="button-password_key">
-			<button class="btn btn-outline-primary mb-0" type="submit" id="button-password_key">确  定</button>
+			<input type="password" id="password_key" name="password_key" class="form-control" placeholder="請輸入密碼檢視隱藏內容" aria-label="請輸入密碼檢視隱藏內容" aria-describedby="button-password_key">
+			<button class="btn btn-outline-primary mb-0" type="submit" id="button-password_key">確  定</button>
 			</div>
 			</form>
 			</div>
@@ -243,20 +243,20 @@ function login_to_read($atts, $content=null) {
 	
 
 
-// 可视化编辑器添加下拉式按钮
+// 可視化編輯器新增下拉式按鈕
 function boxmoe_select(){
 echo '
 <select id="short_code_select">
-    <option value="短代码选择！">Boxmoe短代码</option>
-	<option value="[h2set]内容[/h2set]">H2设置标</option>	
-	<option value="[h2down]内容[/h2down]">H2下载标</option>
-	<option value="[downloadbtn link=\'链接\']按钮名称[/downloadbtn]">下载按钮</option>
-	<option value="[linksbtn link=\'链接\']按钮名称[/linksbtn]">链接按钮</option>
-	<option value="[blockquote1 name=\'签名\']内容[/blockquote1]">引用模块1</option>
-	<option value="[blockquote2 name=\'签名\']内容[/blockquote2]">引用模块2</option>
-	<option value="[listol]每行一条内容[/listol]">OL列表</option>
-	<option value="[yaowan style=\'输入数字1-16共16个模式颜色\']内容[/yaowan]">药丸模块</option>
-	<option value="[alert style=\'输入数字1-7共7个模式颜色\']内容[/alert]">警告框模块</option>
+    <option value="短代碼選擇！">Boxmoe短代碼</option>
+	<option value="[h2set]內容[/h2set]">H2設置標</option>
+	<option value="[h2down]內容[/h2down]">H2下載標</option>
+	<option value="[downloadbtn link=\'連結\']按鈕名稱[/downloadbtn]">下載按鈕</option>
+	<option value="[linksbtn link=\'連結\']按鈕名稱[/linksbtn]">連結按鈕</option>
+	<option value="[blockquote1 name=\'簽名\']內容[/blockquote1]">引用模組1</option>
+	<option value="[blockquote2 name=\'簽名\']內容[/blockquote2]">引用模組2</option>
+	<option value="[listol]每行一條內容[/listol]">OL列表</option>
+	<option value="[yaowan style=\'輸入數字1-16共16個模式顏色\']內容[/yaowan]">藥丸模組</option>
+	<option value="[alert style=\'輸入數字1-7共7個模式顏色\']內容[/alert]">警告框模組</option>
 	<option value="[precode]内容[/precode]">代码高亮</option>
 	<option value="[iframe link=\'链接\']内容[/iframe]">Iframe</option>
 	<option value="[userreading]隐藏内容[/userreading]">登录檢視一</option>

@@ -3,7 +3,7 @@
  * @link https://www.boxmoe.com
  * @package lolimeow
  */
-//boxmoe.com===安全设置=防止直接访问主题文件
+//boxmoe.com===安全設置=防止直接存取主題檔案
 if(!defined('ABSPATH')){echo'Look your sister';exit;}
 ?>
             <div class="col-md-12 mx-auto">
@@ -15,7 +15,7 @@ if(!defined('ABSPATH')){echo'Look your sister';exit;}
                         $categories = get_the_category();
                         if (!empty($categories)) {
                             $first_category = $categories[0]; ?>
-                            <a href="<?php echo esc_url(get_category_link($first_category->term_id)); ?>" title="檢視《<?php echo esc_attr($first_category->name); ?>》分类下的所有文章" class="tag-cloud" rel="category tag">
+                            <a href="<?php echo esc_url(get_category_link($first_category->term_id)); ?>" title="檢視《<?php echo esc_attr($first_category->name); ?>》分類下的所有文章" class="tag-cloud" rel="category tag">
                                 <i class="tagfa fa fa-dot-circle-o"></i><?php echo esc_html($first_category->name); ?>
                             </a>
                         <?php } ?>

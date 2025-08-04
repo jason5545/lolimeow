@@ -4,7 +4,7 @@
  * @package lolimeow
  */
 
-// 安全设置--------------------------boxmoe.com--------------------------
+// 安全設置--------------------------boxmoe.com--------------------------
 if(!defined('ABSPATH')){
     echo'Look your sister';
     exit;

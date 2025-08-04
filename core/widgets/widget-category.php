@@ -3,15 +3,15 @@
  * @link https://www.boxmoe.com
  * @package lolimeow
  */
-//=======安全设置，防止直接访问主题文件=======
+//=======安全設置，防止直接存取主題檔案=======
 if (!defined('ABSPATH')) {echo'Look your sister';exit;}
 //=========================================
 class widget_category extends WP_Widget {
     public function __construct() {
         parent::__construct(
             'category_widget',
-            'Boxmoe_侧栏分类', 
-            array('description' => __('Boxmoe_侧栏分类小工具', 'text_domain'),
+            'Boxmoe_側欄分類',
+            array('description' => __('Boxmoe_側欄分類小工具', 'text_domain'),
 				  'classname' => __('widget_categories', 'text_domain' ))
         );
     }
@@ -38,16 +38,16 @@ class widget_category extends WP_Widget {
     }
 
     public function form($instance) {
-        $title = !empty($instance['title']) ? $instance['title'] : __('分类', 'text_domain');
+        $title = !empty($instance['title']) ? $instance['title'] : __('分類', 'text_domain');
         $show_count = !empty($instance['show_count']) ? (bool) $instance['show_count'] : false;
         ?>
         <p>
-            <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('标题:'); ?></label>
+            <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('標題:'); ?></label>
             <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>">
         </p>
         <p>
             <input class="checkbox" type="checkbox" <?php checked($show_count); ?> id="<?php echo $this->get_field_id('show_count'); ?>" name="<?php echo $this->get_field_name('show_count'); ?>" />
-            <label for="<?php echo $this->get_field_id('show_count'); ?>"><?php _e('显示文章数目'); ?></label>
+            <label for="<?php echo $this->get_field_id('show_count'); ?>"><?php _e('顯示文章數目'); ?></label>
         </p>
         <?php
     }

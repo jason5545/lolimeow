@@ -3,14 +3,14 @@
  * @link https://www.boxmoe.com
  * @package lolimeow
  */
-//boxmoe.com===安全设置=防止直接访问主题文件
+//boxmoe.com===安全設置=防止直接存取主題檔案
 if(!defined('ABSPATH')){echo'Look your sister';exit;}
 ?>                      <div class="post-toc-container">
                             <div class="post-toc-btn">
                                 <i class="fa fa-list-ul"></i>
                             </div>
                             <div class="post-toc">
-                                <div class="toc-title">文章导读</div>
+                                <div class="toc-title">文章導讀</div>
                                 <div class="toc-list"></div>
                             </div>
                         </div>
@@ -23,7 +23,7 @@ if(!defined('ABSPATH')){echo'Look your sister';exit;}
                         $categories = get_the_category();
                         if (!empty($categories)) {
                             $first_category = $categories[0]; ?>
-                            <a href="<?php echo esc_url(get_category_link($first_category->term_id)); ?>" title="檢視《<?php echo esc_attr($first_category->name); ?>》分类下的所有文章" class="tag-cloud" rel="category tag">
+                            <a href="<?php echo esc_url(get_category_link($first_category->term_id)); ?>" title="檢視《<?php echo esc_attr($first_category->name); ?>》分類下的所有文章" class="tag-cloud" rel="category tag">
                                 <i class="tagfa fa fa-dot-circle-o"></i><?php echo esc_html($first_category->name); ?>
                             </a>
                         <?php } ?>
@@ -42,7 +42,7 @@ if(!defined('ABSPATH')){echo'Look your sister';exit;}
                                   <i class="fa fa-clock-o"></i><?php the_date(); ?></span>
                                 <span class="view">
                                   <i class="fa fa-street-view"></i><?php setPostViews(get_the_ID()); ?><?php echo getPostViews(get_the_ID()); ?></span>
-                                  <?php edit_post_link( '<i class="fa fa-pencil-square-o"></i>编辑['.__( '仅作者可见', 'boxmoe'). ']'); ?>
+                                  <?php edit_post_link( '<i class="fa fa-pencil-square-o"></i>編輯['.__( '僅作者可見', 'boxmoe'). ']'); ?>
                               </div>
                             </div>
                           </div>
@@ -50,7 +50,7 @@ if(!defined('ABSPATH')){echo'Look your sister';exit;}
                         <div class="single-info-right">
                           <div class="single-comnum">
                             <a href="#comments-container" class="tag-cloud">
-                              <i class="fa fa-comments-o"></i><?php echo get_comments_number(); ?> 评论</a>
+                              <i class="fa fa-comments-o"></i><?php echo get_comments_number(); ?> 評論</a>
                           </div>
                         </div>
                       </div>
@@ -74,7 +74,7 @@ if(!defined('ABSPATH')){echo'Look your sister';exit;}
                       </div>
                       <div class="post-actions mt-4">
                         <?php if(get_boxmoe('boxmoe_like_switch')): ?>
-                          <button class="action-btn like-btn" title="点赞" data-post-id="<?php the_ID(); ?>">
+                          <button class="action-btn like-btn" title="點讚" data-post-id="<?php the_ID(); ?>">
                               <i class="fa fa-thumbs-up"></i>
                               <span class="like-count"><?php echo getPostLikes(get_the_ID()); ?></span>
                           </button>
@@ -86,9 +86,9 @@ if(!defined('ABSPATH')){echo'Look your sister';exit;}
                           </button>
                           <?php endif; ?>
                           <?php if(get_boxmoe('boxmoe_reward_switch')): ?>
-                          <button class="action-btn reward-btn" title="赞赏">
+                          <button class="action-btn reward-btn" title="贊賞">
                               <i class="fa fa-gift"></i>
-                              <span>打赏</span>
+                              <span>打賞</span>
                           </button>
                           <?php endif; ?>
                       </div>
@@ -103,14 +103,14 @@ if(!defined('ABSPATH')){echo'Look your sister';exit;}
                               <div class="reward-body">
                                   <div class="qrcode-item">
                                       <?php if(get_boxmoe('boxmoe_reward_qrcode_weixin')): ?>
-                                      <img src="<?php echo get_boxmoe('boxmoe_reward_qrcode_weixin'); ?>" alt="微信赞赏" >
-                                      <p>微信扫一扫</p>
+                                      <img src="<?php echo get_boxmoe('boxmoe_reward_qrcode_weixin'); ?>" alt="微信贊賞" >
+                                      <p>微信掃一掃</p>
                                       <?php endif; ?>
                                   </div>
                                   <div class="qrcode-item">
                                       <?php if(get_boxmoe('boxmoe_reward_qrcode_alipay')): ?>
-                                      <img src="<?php echo get_boxmoe('boxmoe_reward_qrcode_alipay'); ?>" alt="支付宝赞赏">
-                                      <p>支付宝扫一扫</p>
+                                      <img src="<?php echo get_boxmoe('boxmoe_reward_qrcode_alipay'); ?>" alt="支付寶贊賞">
+                                      <p>支付寶掃一掃</p>
                                       <?php endif; ?>
                                   </div>
                               </div>
@@ -133,7 +133,7 @@ if(!defined('ABSPATH')){echo'Look your sister';exit;}
                                 <?php else: ?>
                                   <a>
                                     <span><i class="fa fa-angle-left"></i>上一篇</span>
-                                    <h4 class="post-title-ellipsis">已经是第一篇了</h4>
+                                    <h4 class="post-title-ellipsis">已經是第一篇了</h4>
                                   </a>
                                 <?php endif; ?>
                               </div>
@@ -150,7 +150,7 @@ if(!defined('ABSPATH')){echo'Look your sister';exit;}
                                 <?php else: ?>
                                   <a>
                                     <span>下一篇<i class="fa fa-angle-right"></i></span>
-                                    <h4 class="post-title-ellipsis">已经是最新文章了</h4>
+                                    <h4 class="post-title-ellipsis">已經是最新文章了</h4>
                                   </a>
                                 <?php endif; ?>
 

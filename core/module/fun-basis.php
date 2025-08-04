@@ -109,7 +109,7 @@ function boxmoe_body_grey(){
         wp_add_inline_style('boxmoe-style', $css);
     }
 }
-// 欢迎语--------------------------boxmoe.com--------------------------
+// 歡迎語--------------------------boxmoe.com--------------------------
 function boxmoe_banner_welcome(){
     $welcome_text = get_boxmoe('boxmoe_banner_font');
     if(!empty($welcome_text)) {
@@ -118,10 +118,10 @@ function boxmoe_banner_welcome(){
 }
 
 
-// 欢迎语一言 --------------------------boxmoe.com--------------------------
+// 歡迎語一言 --------------------------boxmoe.com--------------------------
 function boxmoe_banner_hitokoto(){
     if(get_boxmoe('boxmoe_banner_hitokoto_switch')){
-        echo '<h1 class="main-title"><i class="fa fa-star spinner"></i><span id="hitokoto" class="text-gradient">加载中</span></h1>';
+        echo '<h1 class="main-title"><i class="fa fa-star spinner"></i><span id="hitokoto" class="text-gradient">載入中</span></h1>';
     }
 }
 
